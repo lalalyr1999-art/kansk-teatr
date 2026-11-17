@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://театр.канск24.рф/sitemap.xml

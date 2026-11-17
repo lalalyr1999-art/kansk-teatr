@@ -1,0 +1,8 @@
+node_modules
+dist
+.netlify
+check-report
+_архив/
+_источники/
+.playwright-mcp/
+*.log

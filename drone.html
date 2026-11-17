@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Пролёт к театру — концепт</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,400&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/src/styles/bor.css">
+<style>
+html,body{height:100%;overflow:hidden;background:#0C0D0B}
+#c,#snow{position:fixed;inset:0;width:100%;height:100%;display:block}
+#snow{pointer-events:none;z-index:1}
+.dr-cap{position:fixed;left:var(--g);bottom:clamp(28px,6vh,56px);z-index:3;color:#fff;text-shadow:0 1px 20px rgba(0,0,0,.5)}
+.dr-cap b{display:block;font:400 italic clamp(1.6rem,3vw,2.4rem)/1.1 var(--s)}
+.dr-cap span{font:500 .9rem var(--t);opacity:.85}
+.dr-rec{position:fixed;top:24px;left:var(--g);z-index:3;display:flex;gap:10px;align-items:center;color:#fff;font:500 .78rem var(--t);letter-spacing:.06em;opacity:.8}
+.dr-rec i{width:8px;height:8px;border-radius:50%;background:#e5483a;animation:blink 1s steps(2) infinite}@keyframes blink{50%{opacity:0}}
+.dr-skip{position:fixed;right:var(--g);bottom:clamp(24px,5vh,48px);z-index:3;height:44px;padding:0 20px;border-radius:22px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.5);color:#fff;font:500 .88rem var(--t)}
+.dr-skip:hover{background:rgba(255,255,255,.12)}
+.top{transform:translateY(-110%);transition:transform 1.2s var(--ease);background:rgba(12,13,11,.55);backdrop-filter:blur(10px)}
+.top.in{transform:none}
+.dr-end{position:fixed;left:0;right:0;bottom:0;padding:30vh 20px clamp(80px,13vh,130px);background:linear-gradient(0deg,rgba(12,13,11,.9) 30%,rgba(12,13,11,0));z-index:3;text-align:center;color:#fff;opacity:0;transform:translateY(20px);transition:opacity 1s .4s,transform 1.2s .4s var(--ease);pointer-events:none;text-shadow:0 2px 30px rgba(0,0,0,.6)}
+.dr-end.in{opacity:1;transform:none;pointer-events:auto}
+.dr-end h1{margin:0 0 22px;font:500 clamp(2.6rem,6vw,5.4rem)/.95 var(--s);letter-spacing:-.03em}.dr-end h1 i{color:#F1C79A;font-weight:400}
+.dr-end div{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<canvas id="c" aria-label="Пролёт: сосновый бор, фасад театра, вход, зрительный зал"></canvas>
+<canvas id="snow" aria-hidden="true"></canvas>
+<div class="dr-rec" data-rec><i></i>КАНСК · СОСНОВЫЙ БОР</div>
+
+<header class="top solid" data-top>
+  <a class="logo" href="/?skip" aria-label="На главную"><img class="c" src="/img/logo-cream.png" alt=""></a>
+  <nav aria-label="Основное меню"><a href="/?skip#toc">Афиша</a><a href="/?skip#gal">Спектакли</a><a href="/?skip#troupe">Люди театра</a><a href="/?skip#news">Новости</a><a href="/?skip#contacts">Контакты</a></nav>
+  <div class="tr"><a class="pill" href="/?skip#toc">Билеты</a></div>
+</header>
+
+<div class="dr-cap" data-cap><b data-ct></b><span data-cs></span></div>
+<button class="dr-skip" type="button" data-skip>Пропустить</button>
+<div class="dr-end" data-end>
+  <h1>Добро пожаловать<br><i>в театр</i></h1>
+  <div><a class="buyb" href="/?skip#toc">Афиша и билеты</a><a class="ghost" href="/?skip">На главную</a><a class="ghost" href="/drone.html">Ещё раз</a></div>
+</div>
+<nav class="sw" aria-label="Варианты для сравнения"><span class="sw__t">Варианты</span><a data-k="main" href="/?skip">Главная</a><a data-k="v1" href="/?skip&amp;v120=1#120">120 · Спил из фото</a><a data-k="v2" href="/?skip&amp;v120=2#120">120 · Покрути время</a><a data-k="bor" href="/concept-d.html">Бор (эскиз)</a><a data-k="flight" href="/flight.html">Облёт 3D</a><a data-k="drone" href="/drone.html">Пролёт</a></nav>
+<style>.sw{max-width:calc(100vw - 20px);overflow-x:auto;scrollbar-width:none;align-items:center}.sw::-webkit-scrollbar{display:none}.sw a{white-space:nowrap}.sw__t{padding:0 8px 0 12px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.5;white-space:nowrap}</style>
+<script>(function(){var p=location.pathname,s=new URLSearchParams(location.search),k=/concept-d/.test(p)?'bor':/flight/.test(p)?'flight':/drone/.test(p)?'drone':(location.hash==='#120'?(s.get('v120')==='2'?'v2':'v1'):'main');document.querySelectorAll('.sw [data-k]').forEach(function(a){a.classList.toggle('on',a.getAttribute('data-k')===k)});document.querySelectorAll('.c120__tabs button').forEach(function(b){b.addEventListener('click',function(){var v=b.getAttribute('data-v');document.querySelectorAll('.sw [data-k]').forEach(function(a){a.classList.toggle('on',a.getAttribute('data-k')==='v'+v)})})})})();</script>
+<script type="module" src="/src/js/drone.js"></script>
+</body>
+</html>

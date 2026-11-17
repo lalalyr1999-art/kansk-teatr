@@ -1,0 +1,59 @@
+/* ===== переключатель вариантов у каждого блока (для показа клиенту) ===== */
+.bv{position:relative;z-index:40;display:flex;flex-wrap:wrap;align-items:center;gap:4px;width:max-content;max-width:calc(100% - 2 * var(--g));margin:0 var(--g) 22px;padding:4px;border-radius:99px;background:rgba(20,18,14,.85);backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1px rgba(217,138,78,.45)}
+.bv__t{padding:0 10px 0 12px;font:600 .66rem var(--t);letter-spacing:.14em;text-transform:uppercase;color:var(--resin);white-space:nowrap}
+.bv button{display:flex;align-items:center;gap:6px;font:500 .8rem var(--t);color:var(--mute);background:none;border:0;padding:7px 13px;border-radius:99px;cursor:pointer;white-space:nowrap}
+.bv button i{font-style:normal;font-size:.68rem;opacity:.6}
+.bv button:hover{color:var(--ink)}
+.bv button.on{background:var(--ink);color:var(--paper)}
+@media (max-width:700px){.bv{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;max-width:calc(100% - 2 * var(--g))}.bv button{padding:6px 10px;font-size:.74rem}}
+
+/* troupe variants visibility */
+.tv,.tv__tabs{display:none!important}
+.tv-host>[data-tv]{display:none!important}
+.troupe[data-tv="1"] .tv-host>[data-tv="1"]{display:grid!important}
+.troupe[data-tv="2"] .tv-host>[data-tv="2"]{display:grid!important}
+.troupe[data-tv="3"] .tv-host>[data-tv="3"]{display:grid!important}
+.troupe[data-tv="4"] .tv-host>[data-tv="4"]{display:block!important}
+.troupe[data-tv="5"] .tv-host>[data-tv="5"]{display:grid!important}
+/* band in color */
+.band__c img{filter:saturate(.9) contrast(1.05) brightness(.9)}
+.band__c:hover img{filter:saturate(1) contrast(1.05) brightness(1)}
+.band__c .cast__grain{opacity:.07}
+
+/* «Нам 120»: наборы вариантов */
+.y120{position:relative;background:var(--paper2)}
+.y120>.bv{position:sticky;top:84px;margin:0 auto;transform:translateY(16px);height:max-content}
+.y120>[data-set]{display:none}
+.y120[data-set="A"]>[data-set="A"],.y120[data-set="B"]>[data-set="B"],.y120[data-set="C"]>[data-set="C"]{display:block}
+.c1b>.pnb{display:none}
+.c1b[data-v="1"]>.pnb--tun,.c1b[data-v="2"]>.pnb--tree,.c1b[data-v="3"]>.pnb--hall{display:block}
+
+/* Подарить / Новости */
+.gnw{position:relative;background:var(--paper)}
+.gnw>.bv{margin-top:0;position:relative;top:clamp(20px,3vw,40px)}
+.gnw>section{display:none}
+.gnw[data-gnw="gift"]>.gift{display:grid}
+.gnw[data-gnw="news"]>.news{display:block}
+/* подвал: новый / прежний */
+.foot>.bv{margin-top:20px}
+.foot__logo{display:none}
+.foot--old .fscene{display:none}
+.foot--old .foot__top{min-height:0}
+.foot--old .foot__logo{display:block;width:150px;margin-bottom:16px}
+.foot--old .foot__c h4{display:none}
+
+.foot--old .foot__top{min-height:0;padding-bottom:36px!important;border-bottom:1px solid rgba(255,255,255,.14)!important}
+.gnw[data-gv="w"] .cert__pat{display:none}
+/* подвал «Сцена отдельно» — до объединения */
+.foot--sep .foot__top{border-bottom:1px solid var(--hair)!important;padding-bottom:36px!important}
+.foot--sep .foot__top .fscene svg{-webkit-mask-image:none;mask-image:none}
+.foot--sep .foot__top .fscene::after{background:linear-gradient(180deg,#0c0d0b 0%,rgba(12,13,11,.3) 38%,rgba(12,13,11,0) 70%,rgba(8,9,7,.6) 100%)}
+.foot--sep .fscene .fground{display:block}
+.foot--sep .foot__g{padding-top:40px!important}
+/* подвал «Всё в одно» — сцена фоном всего подвала, текст поверх */
+.foot--all .foot__top{position:static!important;min-height:0!important;padding-bottom:clamp(40px,5vw,70px)!important}
+.foot--all .foot__top .fscene{position:absolute!important;inset:0!important;z-index:0}
+.foot--all .foot__top .fscene svg{-webkit-mask-image:none;mask-image:none;opacity:1}
+.foot--all .foot__top .fscene::after{background:linear-gradient(180deg,#0c0d0b 0%,rgba(12,13,11,.25) 16%,rgba(12,13,11,.35) 50%,rgba(9,10,8,.6) 82%,#090a08 100%)}
+.foot--all>*:not(.foot__top){position:relative;z-index:2}
+.foot--all .foot__g,.foot--all .foot__gov{background:none}

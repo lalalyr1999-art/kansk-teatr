@@ -1,0 +1,41 @@
+/* ===== v10: 120 — три варианта ===== */
+.cut{display:block;padding:0;position:relative;overflow:clip}
+.cut__in{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:center;padding:clamp(96px,10vw,140px) var(--g) clamp(64px,8vw,110px);position:relative}
+.cut__tabs{position:absolute;top:clamp(28px,3vw,44px);left:50%;transform:translateX(-50%);display:flex;gap:4px;padding:4px;border:1px solid var(--hair);border-radius:99px;background:rgba(12,13,11,.6);z-index:5}
+.cut__tabs button{font:500 .82rem var(--t);color:var(--mute);background:none;border:0;padding:8px 16px;border-radius:99px;cursor:pointer;white-space:nowrap}
+.cut__tabs button.on{background:var(--ink);color:var(--paper)}
+.cut__img img{transition:clip-path .15s linear}
+.cut__yr,.cut__tip,.cut__ring,.cut__my,.my,.cd{display:none}
+.cut__yr{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:500 clamp(1.8rem,3.4vw,3rem)/1 var(--s);color:#fff;background:rgba(12,13,11,.72);padding:.25em .5em;border-radius:99px;backdrop-filter:blur(4px);z-index:3;font-variant-numeric:tabular-nums}
+/* 1 — растёт */
+@media (min-width:901px){.cut.v1{height:230vh}.cut.v1 .cut__in{position:sticky;top:0;height:100vh;padding-top:150px;padding-bottom:40px}.cut.v1 .cut__tabs{top:96px}}
+.v1 .cut__yr{display:block}.v1 [data-mk="0"]{opacity:0!important}
+/* 2 — ваше кольцо */
+.v2 .cut__img{cursor:crosshair}.v2 .mk{opacity:0!important}
+.v2 .cut__my{display:block;position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+.cut__my circle{fill:none;stroke:#fff;stroke-width:1.1;filter:drop-shadow(0 0 .8px rgba(60,20,0,.9)) drop-shadow(0 0 2px rgba(217,138,78,1));opacity:0;transition:r .35s var(--ease),opacity .4s}
+.pick .cut__my circle{opacity:1}
+.v2 .cut__tip{display:block;position:absolute;transform:translate(8px,-130%);font:500 .95rem var(--s);color:#fff;background:var(--resin);padding:4px 12px;border-radius:99px;pointer-events:none;z-index:3;opacity:0;transition:left .35s var(--ease),top .35s var(--ease),opacity .3s}
+.pick .cut__tip{opacity:1}
+.v2 .my{display:block;margin-top:28px;padding:22px 24px;border:1px solid var(--hair);border-radius:14px;background:rgba(236,229,216,.03)}
+.my label{display:block;font:500 1.25rem var(--s);color:var(--ink);margin-bottom:12px}
+.my div{display:flex;gap:8px}
+.my input{flex:1;min-width:0;font:500 1.05rem var(--t);color:var(--ink);background:var(--paper);border:1px solid var(--hair);border-radius:99px;padding:12px 18px}
+.my input:focus{outline:none;border-color:var(--resin)}
+.my button{font:600 .9rem var(--t);color:var(--paper);background:var(--resin);border:0;border-radius:99px;padding:0 22px;cursor:pointer}
+.my__out{margin:14px 0 0!important;font-size:.95rem}.my__out b{color:var(--resin);font-weight:600}
+.v2 .yrs{display:none}
+/* 3 — отсчёт */
+.v3 .cut__ring{display:block;position:absolute;inset:-6%;width:112%;height:112%;animation:ringspin 80s linear infinite;z-index:1;pointer-events:none}
+.cut__ring text{font:500 3.1px var(--t);letter-spacing:.9px;fill:var(--pine);text-transform:uppercase}
+.v3 .cut__img img{animation:ringspin 400s linear infinite reverse}
+.v3 .mk{opacity:0!important}
+@keyframes ringspin{to{transform:rotate(360deg)}}
+.v3 .cd{display:block;margin-top:30px}
+.cd__k{display:block;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--pine);margin-bottom:14px}
+.cd__n{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:clamp(18px,3vw,44px)}
+.cd__n b{display:block;font:500 clamp(2.4rem,4.6vw,4.4rem)/1 var(--s);color:var(--ink);font-variant-numeric:tabular-nums}
+.cd__n small{display:block;margin-top:8px;font-size:.78rem;color:var(--mute)}
+.cd__a{display:inline-block;margin-top:28px;color:var(--resin);font-weight:500;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+.v3 .yrs{display:none}
+@media (max-width:900px){.cut__in{grid-template-columns:1fr}.cut__tabs{left:var(--g);right:var(--g);transform:none;overflow-x:auto;justify-content:center}.cut__tabs button{padding:8px 11px;font-size:.76rem}}

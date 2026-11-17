@@ -1,0 +1,27 @@
+/* Токены — из DESIGN.md, остальной CSS их только использует */
+:root {
+  --paper: #F6F4EF;      /* фон */
+  --paper-2: #ECEAE3;    /* подложки */
+  --sage: #E1E7DC;       /* хвойная подложка */
+  --pine: #1E4A38;       /* основной: кнопки, акцентные блоки */
+  --pine-2: #15382A;
+  --moss: #7E8C76;
+  --amber: #D2643C;      /* тёплый акцент (терракота) — точечно */
+  --amber-h: #B9532F;
+  --amber-l: #F0B48F;
+  --ink: #1A1C19;
+  --mute: #6A6E66;
+  --line: rgba(26, 28, 25, .12);
+  --pk: #E6DDF3;
+  --pk-t: #4B2E6B;
+
+  --font: 'Onest', system-ui, sans-serif;
+  --fs-base: 16px;
+
+  --container: 1360px;
+  --gutter: clamp(16px, 3.4vw, 48px);
+  --section: clamp(72px, 9vw, 128px);
+  --r: 24px;
+  --r-s: 14px;
+  --ease: cubic-bezier(.22, .8, .2, 1);
+}
