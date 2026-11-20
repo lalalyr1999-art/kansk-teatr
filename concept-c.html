@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Концепт В · Кино — Канский драматический театр</title>
+<link rel="icon" href="/kansk-teatr/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F2EFE9;--paper2:#E6E1D8;--ink:#161714;--mute:#6B6A64;--amber:#E2A66B;--pine:#1E4A38;--hair:rgba(22,23,20,.14);
+  --t:'Onest',system-ui,sans-serif;--g:clamp(16px,3.4vw,56px);--ease:cubic-bezier(.22,.8,.2,1)}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scrollbar-color:var(--ink) var(--paper2)}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1rem/1.55 var(--t);overflow-x:clip}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+::selection{background:var(--amber);color:var(--ink)}:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+
+/* полноэкранный кадр */
+.screen{position:relative;height:100svh;min-height:620px;overflow:hidden;background:#0d0e0c;color:#fff}
+.screen__ph{position:absolute;inset:0}
+.screen__ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:60% 50%}
+.screen__sh{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 50%,rgba(0,0,0,.7) 100%)}
+.cut{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none}
+.bar{position:absolute;left:0;right:0;top:0;display:flex;align-items:center;justify-content:space-between;padding:20px var(--g);z-index:3}
+.brand{display:flex;align-items:center;gap:12px;font:500 .95rem/1.1 var(--t)}
+.brand svg{width:38px;height:38px}
+.bar nav{display:flex;gap:28px;font:400 .95rem var(--t);opacity:.9}
+.bar nav a:hover{opacity:.6}
+.tick{display:inline-flex;align-items:center;height:44px;padding:0 20px;border-radius:22px;background:#fff;color:var(--ink);font:500 .92rem var(--t);transition:background .3s}
+.tick:hover{background:var(--amber)}
+.screen__t{position:absolute;left:var(--g);right:var(--g);bottom:clamp(28px,5vh,56px);z-index:3;display:grid;grid-template-columns:1fr auto;align-items:end;gap:32px}
+.screen__t small{display:block;font:400 .95rem var(--t);opacity:.8;margin-bottom:14px;letter-spacing:.02em}
+.screen h1{margin:0;font:300 clamp(3.2rem,8vw,6rem)/.92 var(--t);letter-spacing:-.04em}
+.screen h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}.screen h1 .ln>span{display:block}
+.screen__row{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:22px;font:400 1rem var(--t);opacity:.88}
+.screen__acts{display:flex;gap:12px;margin-top:28px}
+.play{display:inline-flex;align-items:center;gap:12px;height:52px;padding:0 22px 0 8px;border-radius:26px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.5);font:500 .95rem var(--t);transition:background .3s}
+.play:hover{background:rgba(255,255,255,.12)}
+.play i{width:38px;height:38px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.play svg{width:12px;height:12px;margin-left:2px}
+.tc{display:grid;gap:10px;justify-items:end;font:400 .85rem var(--t);font-variant-numeric:tabular-nums}
+.tc__bar{width:220px;height:2px;background:rgba(255,255,255,.25)}.tc__bar i{display:block;height:100%;width:0;background:#fff}
+.tc__list{display:grid;gap:4px;text-align:right}
+.tc__list button{opacity:.5;transition:opacity .3s;font:400 .92rem var(--t)}.tc__list button.on,.tc__list button:hover{opacity:1}
+
+/* афиша — лента кадров */
+.reel{padding:clamp(56px,7vw,112px) 0 clamp(40px,5vw,72px)}
+.reel__h{display:flex;justify-content:space-between;align-items:end;gap:20px;padding:0 var(--g);margin-bottom:28px;flex-wrap:wrap}
+.reel__h h2{margin:0;font:300 clamp(2.6rem,5vw,4.6rem)/.95 var(--t);letter-spacing:-.04em}
+.reel__h h2 b{font-weight:500}
+.arrows{display:flex;gap:8px}
+.arrows button{width:52px;height:52px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--ink);display:grid;place-items:center;transition:background .3s,color .3s}
+.arrows button:hover{background:var(--ink);color:#fff}
+.arrows svg{width:16px;height:16px}
+.strip{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--g) 12px;scrollbar-width:none}
+.frame{flex:none;width:min(62vw,860px);scroll-snap-align:start;color:#fff}
+.frame__im{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:6px;background:#111}
+.frame__im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.frame:hover .frame__im img{transform:scale(1.05)}
+.frame__im::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.72),rgba(0,0,0,0) 55%)}
+.frame__t{position:absolute;left:22px;right:22px;bottom:20px;z-index:2;display:flex;justify-content:space-between;align-items:end;gap:20px}
+.frame__t h3{margin:0;font:400 clamp(1.5rem,2.6vw,2.4rem)/1 var(--t);letter-spacing:-.03em}
+.frame__t p{margin:6px 0 0;opacity:.8;font-size:.92rem}
+.frame__t span{white-space:nowrap;height:44px;display:inline-flex;align-items:center;padding:0 18px;border-radius:22px;background:#fff;color:var(--ink);font:500 .9rem var(--t);transition:background .3s}
+.frame:hover .frame__t span{background:var(--amber)}
+.frame__date{position:absolute;left:22px;top:18px;z-index:2;font:300 2.6rem/1 var(--t);letter-spacing:-.04em}
+.frame__date small{display:block;font:400 .82rem var(--t);opacity:.8;letter-spacing:0}
+
+/* титры */
+.credits{display:grid;grid-template-columns:1fr minmax(260px,360px) 1fr;gap:40px;padding:clamp(56px,7vw,112px) var(--g);border-top:1px solid var(--hair);align-items:start}
+.credits h2{margin:0;font:300 clamp(2.4rem,4.4vw,4rem)/1 var(--t);letter-spacing:-.04em;position:sticky;top:40px}
+.credits h2 b{font-weight:500}
+.names{text-align:center}
+.names li{list-style:none}
+.names button{display:block;width:100%;padding:7px 0;font:400 clamp(1.2rem,1.8vw,1.6rem)/1.2 var(--t);letter-spacing:-.02em;color:var(--mute);transition:color .3s}
+.names button:hover,.names button.on{color:var(--ink)}
+.names ol{margin:0;padding:0}
+.names small{display:block;font:400 .8rem var(--t);color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin:0 0 18px}
+.portrait{position:sticky;top:40px;aspect-ratio:3/4;border-radius:6px;overflow:hidden;background:#222}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.portrait figcaption{position:absolute;left:16px;bottom:14px;color:#fff;font:400 .9rem var(--t);z-index:2}
+.portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.55),transparent 40%)}
+
+.sw{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:50;display:flex;gap:4px;padding:5px;border-radius:30px;background:#1A1C19;box-shadow:0 12px 30px -10px rgba(0,0,0,.45);font:500 .82rem 'Onest',sans-serif}
+.sw a{padding:9px 14px;border-radius:24px;color:#ddd}.sw a.on{background:#fff;color:#111}
+
+@media (max-width:1000px){.bar nav{display:none}.screen__t{grid-template-columns:1fr}.tc{justify-items:start}.tc__list{text-align:left}.frame{width:84vw}
+  .credits{grid-template-columns:1fr}.credits h2{position:relative;top:0}.portrait{display:none}}
+@media (max-width:560px){.brand span{display:none}.screen__acts{flex-wrap:wrap}.tc__list{display:none}.frame__t{flex-direction:column;align-items:flex-start}.frame__date{font-size:2rem}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+  <script type="module" crossorigin src="/kansk-teatr/assets/cc-DPWzhC8K.js"></script>
+  <link rel="modulepreload" crossorigin href="/kansk-teatr/assets/index-KbfEd18V.js">
+  <link rel="modulepreload" crossorigin href="/kansk-teatr/assets/events-BmUtOq9h.js">
+  <link rel="modulepreload" crossorigin href="/kansk-teatr/assets/people-D-eoIy6b.js">
+</head>
+<body>
+<section class="screen">
+  <div class="screen__ph" data-ph></div>
+  <div class="screen__sh"></div>
+  <div class="cut" data-cut></div>
+  <header class="bar">
+    <a class="brand" href="/kansk-teatr/"><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="14" fill="#fff"/><g fill="none" stroke="#161714" stroke-width="2.4"><path d="M10 29.5A8.5 8.5 0 0 1 18.5 38"/><path d="M10 21A17 17 0 0 1 27 38"/><path d="M10 12.5A25.5 25.5 0 0 1 35.5 38"/></g><circle cx="10" cy="38" r="3.6" fill="#E2A66B"/></svg><span>Канский<br>драматический театр</span></a>
+    <nav><a href="#reel">Афиша</a><a href="#">Спектакли</a><a href="#credits">Люди театра</a><a href="#">Новости</a><a href="#">Контакты</a></nav>
+    <a class="tick" href="#reel">Билеты</a>
+  </header>
+  <div class="screen__t">
+    <div>
+      <small data-k></small>
+      <h1 data-title></h1>
+      <div class="screen__row" data-row></div>
+      <div class="screen__acts"><a class="tick" href="#" data-price>Купить билет</a><button class="play" type="button"><i><svg viewBox="0 0 12 12"><path d="M1 0l11 6-11 6z" fill="#161714"/></svg></i>Смотреть тизер</button></div>
+    </div>
+    <div class="tc"><span data-tc>00:00 / 00:07</span><div class="tc__bar"><i data-tcb></i></div><div class="tc__list" data-list></div></div>
+  </div>
+</section>
+
+<section class="reel" id="reel">
+  <div class="reel__h"><h2><b>Афиша</b><br>декабря</h2><div class="arrows"><button data-prev aria-label="Назад"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 8H1M6 3L1 8l5 5"/></svg></button><button data-next aria-label="Вперёд"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h14M10 3l5 5-5 5"/></svg></button></div></div>
+  <div class="strip" data-strip></div>
+</section>
+
+<section class="credits" id="credits">
+  <h2><b>В ролях</b><br>труппа сезона</h2>
+  <div class="names"><small>Канский драматический театр представляет</small><ol data-names></ol></div>
+  <figure class="portrait" data-portrait><figcaption data-pcap></figcaption></figure>
+</section>
+<div style="height:90px"></div>
+
+<nav class="sw" aria-label="Варианты для сравнения"><span class="sw__t">Сайт целиком</span><a data-k="main" href="/kansk-teatr/">Основной</a><a data-k="a" href="/kansk-teatr/concept-a.html">А · Плакат</a><a data-k="b" href="/kansk-teatr/concept-b.html">Б · Журнал</a><a data-k="c" href="/kansk-teatr/concept-c.html">В · Кино</a><a data-k="d" href="/kansk-teatr/concept-d.html">Г · Бор</a><a data-k="old" href="/kansk-teatr/old.html">Первая главная</a></nav>
+<style>.sw{max-width:calc(100vw - 20px);overflow-x:auto;scrollbar-width:none;align-items:center}.sw::-webkit-scrollbar{display:none}.sw a{white-space:nowrap}.sw__t{padding:0 8px 0 12px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.5;white-space:nowrap}</style>
+<script>(function(){var p=location.pathname,m=p.match(/concept-([abcd])/),k=m?m[1]:/old\.html/.test(p)?"old":"main";document.querySelectorAll(".sw [data-k]").forEach(function(a){a.classList.toggle("on",a.getAttribute("data-k")===k)})})();</script>
+
+</body>
+</html>

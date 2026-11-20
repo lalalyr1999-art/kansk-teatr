@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Концепт Г · Бор — Канский драматический театр</title>
+<link rel="icon" href="/kansk-teatr/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F3EDE2;--paper2:#E9E1D2;--ink:#2B2823;--mute:#706759;--pine:#2C4A3A;--resin:#B8692E;--hair:rgba(43,40,35,.16);
+  --s:'Playfair Display',Georgia,serif;--t:'Onest',system-ui,sans-serif;--g:clamp(16px,3.4vw,56px);--ease:cubic-bezier(.22,.8,.2,1)}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scrollbar-color:var(--pine) var(--paper2)}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1rem/1.6 var(--t);overflow-x:clip}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+::selection{background:var(--pine);color:#fff}:focus-visible{outline:2px solid var(--resin);outline-offset:3px}
+
+/* шапка */
+.top{position:fixed;left:0;right:0;top:0;z-index:40;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;padding:12px var(--g);transition:background .5s,color .5s,box-shadow .5s;color:#fff}
+.top.solid{background:rgba(243,237,226,.94);backdrop-filter:blur(12px);color:var(--ink);box-shadow:0 1px 0 var(--hair)}
+.logo{display:block;width:150px;height:57px;position:relative}
+.logo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .5s}
+.logo .k{opacity:0}.top.solid .logo .k{opacity:1}.top.solid .logo .c{opacity:0}
+.top nav{display:flex;justify-content:center;gap:26px;font:500 .95rem var(--t)}
+.top nav a{opacity:.85;transition:opacity .3s}.top nav a:hover{opacity:1}
+.tr{display:flex;align-items:center;gap:10px}
+.ib{height:44px;min-width:44px;padding:0 14px;border-radius:22px;display:inline-flex;align-items:center;gap:10px;box-shadow:inset 0 0 0 1px currentColor;font:500 .88rem var(--t);opacity:.9;transition:background .3s}
+.ib:hover{background:rgba(255,255,255,.14)}.top.solid .ib:hover{background:var(--paper2)}
+.ib svg{width:18px;height:18px}
+.ib .eq{display:flex;gap:2px;align-items:end;height:12px}.ib .eq i{width:2px;background:currentColor;height:30%;transition:height .3s}
+.ib.on .eq i{animation:eq 1s ease-in-out infinite alternate}.ib.on .eq i:nth-child(2){animation-delay:.2s}.ib.on .eq i:nth-child(3){animation-delay:.4s}
+@keyframes eq{from{height:20%}to{height:100%}}
+.pill{display:inline-flex;align-items:center;height:44px;padding:0 22px;border-radius:22px;background:#fff;color:var(--ink);font:500 .92rem var(--t);transition:background .3s,color .3s}
+.top.solid .pill{background:var(--pine);color:#fff}.pill:hover{background:var(--resin)!important;color:#fff!important}
+
+/* СОСНЫ-КУЛИСЫ */
+.stage{position:relative;height:100svh;min-height:640px;overflow:hidden;background:#1d1c18}
+.scene{position:absolute;inset:0}
+.scene img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.2s var(--ease)}
+.scene::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,18,14,.72) 0%,rgba(20,18,14,.3) 48%,rgba(20,18,14,0) 70%),linear-gradient(0deg,rgba(20,18,14,.55),rgba(20,18,14,0) 40%)}
+.show{position:absolute;left:var(--g);bottom:clamp(32px,7vh,72px);z-index:2;color:#fff;max-width:640px}
+.show__w{font:500 .95rem var(--t);opacity:.85;margin-bottom:16px}
+.show h1{margin:0;font:500 clamp(3rem,6.6vw,6rem)/.95 var(--s);letter-spacing:-.03em}
+.show h1 i{font-weight:400;color:#F1C79A}
+.show h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}.show h1 .ln>span{display:block}
+.show p{margin:18px 0 26px;font-size:1.05rem;opacity:.86;max-width:32em}
+.show__acts{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.ghost{display:inline-flex;align-items:center;height:48px;padding:0 22px;border-radius:24px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.55);color:#fff;font:500 .95rem var(--t);transition:background .3s}
+.ghost:hover{background:rgba(255,255,255,.14)}
+.buyb{display:inline-flex;align-items:center;height:48px;padding:0 24px;border-radius:24px;background:#F3EDE2;color:var(--ink);font:500 .95rem var(--t);transition:background .3s,color .3s}
+.buyb:hover{background:var(--resin);color:#fff}
+.nexts{position:absolute;right:var(--g);bottom:clamp(32px,7vh,72px);z-index:2;display:grid;gap:8px;width:280px}
+.nexts button{display:grid;grid-template-columns:56px 1fr;gap:12px;align-items:center;text-align:left;color:#fff;opacity:.55;transition:opacity .3s}
+.nexts button.on,.nexts button:hover{opacity:1}
+.nexts img{width:56px;height:56px;border-radius:50%;object-fit:cover}
+.nexts b{display:block;font:500 1.05rem/1.15 var(--s)}.nexts span{font-size:.8rem}
+/* лес поверх сцены — режется на стволы-кулисы */
+.forest{position:absolute;inset:0;z-index:5;display:flex;pointer-events:none}
+.trunk{position:relative;flex:1;height:100%;overflow:hidden;will-change:transform}
+.trunk img{position:absolute;top:0;height:100%;width:100vw;max-width:none;object-fit:cover}
+.rays{position:absolute;inset:0;z-index:6;pointer-events:none;mix-blend-mode:screen;opacity:.55;
+  background:repeating-linear-gradient(105deg,rgba(255,226,170,0) 0 70px,rgba(255,226,170,.16) 90px,rgba(255,226,170,0) 130px);animation:rays 14s ease-in-out infinite alternate}
+@keyframes rays{to{transform:translateX(4%)}}
+.veil{position:absolute;inset:0;z-index:7;display:grid;place-content:center;text-align:center;color:#fff;pointer-events:none;padding:0 20px}
+.veil h2{margin:0;font:500 clamp(2.6rem,6vw,5.6rem)/.98 var(--s);letter-spacing:-.03em;text-shadow:0 2px 40px rgba(0,0,0,.35)}
+.veil h2 i{font-weight:400;color:#F6D3A6}
+.veil p{margin:22px 0 0;font:500 .95rem var(--t);opacity:.9}
+.veil .hint{margin-top:36px;display:inline-flex;flex-direction:column;align-items:center;gap:10px;font-size:.85rem;opacity:.85}
+.veil .hint i{width:1px;height:46px;background:rgba(255,255,255,.35);position:relative;overflow:hidden}
+.veil .hint i::after{content:"";position:absolute;left:0;right:0;top:-40%;height:40%;background:#fff;animation:drip 2s var(--ease) infinite}
+@keyframes drip{to{top:100%}}
+
+/* АФИША — оглавление */
+.toc{display:grid;grid-template-columns:5fr 7fr;gap:clamp(24px,4vw,72px);padding:clamp(64px,8vw,120px) var(--g)}
+.toc__l{position:sticky;top:96px;align-self:start}
+.h2{margin:0 0 26px;font:500 clamp(2.6rem,4.8vw,4.4rem)/.95 var(--s);letter-spacing:-.03em}
+.h2 i{color:var(--pine);font-weight:400}
+.toc__ph{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:200px 200px 6px 6px}
+.toc__ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.toc__cap{margin-top:12px;font:italic 400 .95rem var(--s);color:var(--mute)}
+.months{display:flex;gap:26px;margin-bottom:10px;font:500 .95rem var(--t)}
+.months button{padding:6px 0;border-bottom:1px solid transparent;color:var(--mute)}.months button.on{color:var(--ink);border-color:var(--ink)}
+.row{display:grid;grid-template-columns:104px 1fr auto;gap:24px;align-items:center;padding:24px 0;border-bottom:1px solid var(--hair);transition:padding .5s var(--ease)}
+.row:hover{padding-left:12px}
+.row__d b{display:block;font:italic 400 3.2rem/.9 var(--s);letter-spacing:-.03em}
+.row__d span{font:500 .8rem var(--t);color:var(--mute)}
+.row h3{margin:0 0 6px;font:500 1.75rem/1.1 var(--s);letter-spacing:-.02em;transition:color .3s}
+.row:hover h3{color:var(--resin)}
+.row p{margin:0;font-size:.9rem;color:var(--mute)}
+.row__b{text-align:right}.row__b b{display:block;font:500 1.05rem var(--s);margin-bottom:8px}
+.tl{font:500 .95rem var(--t);border-bottom:1px solid currentColor;padding-bottom:2px}.row:hover .tl{color:var(--resin)}
+.tag{display:inline-block;margin-left:8px;padding:2px 9px;border-radius:10px;background:#E6DDF3;color:#4B2E6B;font:500 .72rem var(--t);vertical-align:middle}
+.tag--p{background:var(--resin);color:#fff}
+
+/* ТРУППА — стволы */
+.troupe{padding:clamp(48px,6vw,96px) 0 clamp(64px,8vw,120px)}
+.troupe__h{display:flex;justify-content:space-between;align-items:end;gap:24px;padding:0 var(--g);margin-bottom:32px;flex-wrap:wrap}
+.troupe__h p{margin:0;max-width:30em;color:var(--mute)}
+.grove{display:flex;gap:6px;height:min(72vh,640px);padding:0 var(--g)}
+.tr-c{position:relative;flex:1 1 0;min-width:0;overflow:hidden;border-radius:999px 999px 8px 8px;transition:flex-grow .8s var(--ease),border-radius .8s var(--ease);cursor:pointer;background:#3a352d}
+.tr-c img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(.5) saturate(.6) brightness(.92);transition:filter .8s var(--ease),transform 1.2s var(--ease)}
+.tr-c::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,18,14,.75),rgba(20,18,14,0) 45%);opacity:0;transition:opacity .6s}
+.tr-c.on{flex-grow:9;border-radius:220px 220px 8px 8px}
+.tr-c.on img{filter:none}.tr-c.on::after{opacity:1}
+.tr-c:not(.on):hover img{filter:sepia(.2) saturate(.9)}
+.tr-c b{position:absolute;left:50%;bottom:18px;z-index:2;color:#fff;font:500 .9rem var(--s);white-space:nowrap;writing-mode:vertical-rl;transform:translateX(-50%) rotate(180deg);opacity:.9;transition:opacity .3s}
+.tr-c.on b{opacity:0}
+.tr-c .cap{position:absolute;left:22px;right:22px;bottom:20px;z-index:2;color:#fff;opacity:0;transform:translateY(12px);transition:opacity .5s .25s,transform .6s .25s var(--ease)}
+.tr-c.on .cap{opacity:1;transform:none}
+.cap strong{display:block;font:500 1.7rem/1.05 var(--s);letter-spacing:-.02em}.cap span{font:italic 400 .95rem var(--s);opacity:.85}
+
+/* СПИЛ */
+.cut{overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:center;padding:clamp(64px,8vw,120px) var(--g);background:var(--paper2)}
+.cut__img{position:relative;aspect-ratio:1;max-width:620px;justify-self:center;width:100%}
+.cut__img img{width:100%;height:100%;object-fit:cover;border-radius:50%;box-shadow:0 40px 80px -40px rgba(43,40,35,.6)}
+.mk{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:10px;color:#fff;font:500 .82rem var(--t);opacity:0;transition:opacity .6s}
+.mk.on{opacity:1}
+.mk i{width:12px;height:12px;border-radius:50%;background:var(--resin);box-shadow:0 0 0 4px rgba(255,255,255,.75)}
+.mk span{background:rgba(43,40,35,.82);padding:5px 10px;border-radius:12px;white-space:nowrap}
+.cut h2 i{color:var(--resin)}
+.cut p{color:var(--mute);max-width:32em}
+.yrs{margin-top:28px;border-top:1px solid var(--hair)}
+.yrs li{list-style:none;display:grid;grid-template-columns:96px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--hair);opacity:.4;transition:opacity .5s}
+.yrs li.on{opacity:1}.yrs b{font:500 1.25rem var(--s);color:var(--pine)}.yrs span{font-size:.92rem;color:var(--mute)}
+.yrs ol{margin:0;padding:0}
+
+.foot{background:var(--pine);color:rgba(243,237,226,.85);padding:clamp(48px,6vw,80px) var(--g) 28px;margin-top:0}
+.foot__top{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.14)}
+.foot__top p{margin:0;font:500 clamp(2.4rem,5vw,4.4rem)/1 var(--s);color:#F3EDE2;letter-spacing:-.03em}.foot__top p i{color:#F1C79A;font-weight:400}
+.foot__g{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;padding-top:36px;font-size:.92rem;line-height:1.8}
+.foot__g img{width:170px;margin-bottom:12px}
+.foot h4{margin:0 0 10px;font:500 .82rem var(--t);color:rgba(243,237,226,.5)}
+.credit{margin-top:36px;font-size:.75rem;opacity:.55}
+
+.sw{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:50;display:flex;gap:4px;padding:5px;border-radius:30px;background:#1A1C19;box-shadow:0 12px 30px -10px rgba(0,0,0,.45);font:500 .82rem 'Onest',sans-serif}
+.sw a{padding:9px 14px;border-radius:24px;color:#ddd}.sw a.on{background:#fff;color:#111}
+
+@media (max-width:1050px){.top nav{display:none}.top{grid-template-columns:auto 1fr}.tr{justify-self:end}.nexts{display:none}
+  .toc,.cut{grid-template-columns:1fr}.toc__l{position:relative;top:0}.toc__ph{display:none}}
+@media (max-width:700px){.ib .lbl{display:none}.logo{width:120px;height:46px}
+  .grove{height:auto;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;scrollbar-width:none}
+  .tr-c,.tr-c.on{flex:0 0 66vw;height:88vw;border-radius:200px 200px 8px 8px;scroll-snap-align:start}
+  .tr-c img{filter:none}.tr-c::after{opacity:1}.tr-c b{display:none}.tr-c .cap{opacity:1;transform:none}.cap strong{font-size:1.25rem}
+  .row{grid-template-columns:70px 1fr;gap:12px}.row__d b{font-size:2.4rem}.row__b{grid-column:2;text-align:left;display:flex;gap:14px;align-items:center}.row__b b{margin:0}.row h3{font-size:1.35rem}
+  .foot__g{grid-template-columns:1fr}.show h1{font-size:2.9rem}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+  <script type="module" crossorigin src="/kansk-teatr/assets/cd-DrsfOFCF.js"></script>
+  <link rel="modulepreload" crossorigin href="/kansk-teatr/assets/index-KbfEd18V.js">
+  <link rel="modulepreload" crossorigin href="/kansk-teatr/assets/events-BmUtOq9h.js">
+  <link rel="modulepreload" crossorigin href="/kansk-teatr/assets/people-D-eoIy6b.js">
+  <link rel="modulepreload" crossorigin href="/kansk-teatr/assets/lenis-DN7prqpo.js">
+</head>
+<body>
+<header class="top" data-top>
+  <a class="logo" href="/kansk-teatr/" aria-label="Канский драматический театр"><img class="c" src="/kansk-teatr/img/logo-cream.png" alt=""><img class="k" src="/kansk-teatr/img/logo-ink.png" alt=""></a>
+  <nav><a href="#toc">Афиша</a><a href="#">Спектакли</a><a href="#troupe">Люди театра</a><a href="#">Новости</a><a href="#">Контакты</a></nav>
+  <div class="tr">
+    <button class="ib" type="button" data-birds aria-pressed="false" title="Звуки соснового бора"><span class="eq"><i></i><i></i><i></i></span><span class="lbl">Звуки бора</span></button>
+    <button class="ib" type="button" aria-label="Версия для слабовидящих"><svg viewBox="0 0 22 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 7s4-6 10-6 10 6 10 6-4 6-10 6S1 7 1 7z"/><circle cx="11" cy="7" r="2.6"/></svg></button>
+    <a class="pill" href="#toc">Билеты</a>
+  </div>
+</header>
+
+<section class="stage" data-stage>
+  <div class="scene" data-scene></div>
+  <div class="show" data-show>
+    <div class="show__w" data-when></div>
+    <h1 data-title></h1>
+    <p data-lead></p>
+    <div class="show__acts"><a class="buyb" href="#" data-price>Купить билет</a><a class="ghost" href="#">О спектакле</a></div>
+  </div>
+  <div class="nexts" data-nexts></div>
+  <div class="forest" data-forest></div>
+  <div class="rays" data-rays></div>
+  <div class="veil" data-veil>
+    <h2>Театр<br><i>в сосновом бору</i></h2>
+    <p>Канский драматический театр · 120-й сезон · с 1907 года</p>
+    <span class="hint"><i></i>Листайте — сосны расступятся</span>
+  </div>
+</section>
+
+<section class="toc" id="toc">
+  <div class="toc__l"><h2 class="h2">Афиша<br><i>декабря</i></h2><div class="toc__ph" data-tph></div><p class="toc__cap" data-tcap></p></div>
+  <div><div class="months"><button class="on">Декабрь</button><button>Январь</button><button>Февраль</button></div><div data-rows></div></div>
+</section>
+
+<section class="troupe" id="troupe">
+  <div class="troupe__h"><h2 class="h2" style="margin:0">Труппа<br><i>как бор — все разные</i></h2><p>23 артиста. Наведите на портрет — и он раскроется.</p></div>
+  <div class="grove" data-grove></div>
+</section>
+
+<section class="cut" data-cutsec>
+  <div class="cut__img" data-cutimg><img src="/kansk-teatr/img/spil.jpg" alt="Спил сосны: годовые кольца"></div>
+  <div>
+    <h2 class="h2">Нам 120.<br>Мы не стоим на месте —<br><i>мы растём</i></h2>
+    <p>У сосны каждый год — новое кольцо. У театра — новый сезон. Соснам бора вокруг нас до 130 лет: мы выросли вместе.</p>
+    <ol class="yrs" data-yrs>
+      <li><b>1907</b><span>5 апреля зарегистрировано Общество любителей музыки, пения и драматического искусства.</span></li>
+      <li><b>1944–45</b><span>На нашей сцене играет эвакуированный Минусинский драматический театр.</span></li>
+      <li><b>Сегодня</b><span>Творческие лаборатории, гастроли, студия «Пятый элемент», семейные абонементы.</span></li>
+      <li><b>2026/27</b><span>Юбилейный 120-й сезон, новый главный режиссёр — и новые премьеры.</span></li>
+    </ol>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot__top"><p>Ждём вас<br><i>в сосновом бору</i></p><a class="buyb" href="#toc">Выбрать спектакль</a></div>
+  <div class="foot__g">
+    <div><img src="/kansk-teatr/img/logo-cream.png" alt="Канский драматический театр"><div>663604, г. Канск, ул. 40 лет Октября, 31, стр. 1</div></div>
+    <div><h4>Касса</h4>8 (39161) 2-27-74<br>вт–вс 10:00–18:00, пн — выходной</div>
+    <div><h4>Приёмная</h4>8 (39161) 2-03-79<br>teatrkansk@yandex.ru</div>
+    <div><h4>Зрителям</h4>Доступная среда<br>Правила посещения<br>Документы и сведения</div>
+  </div>
+  <p class="credit">Звуки бора: «Birdsong, Bourne Woods» — Robert EA Harvey, CC BY-SA 4.0 (Wikimedia Commons). Демо: даты и цены условные.</p>
+</footer>
+<audio data-audio src="/kansk-teatr/birds.mp3" loop preload="none"></audio>
+<div style="height:70px;background:var(--pine)"></div>
+
+<nav class="sw" aria-label="Варианты для сравнения"><span class="sw__t">Сайт целиком</span><a data-k="main" href="/kansk-teatr/">Основной</a><a data-k="a" href="/kansk-teatr/concept-a.html">А · Плакат</a><a data-k="b" href="/kansk-teatr/concept-b.html">Б · Журнал</a><a data-k="c" href="/kansk-teatr/concept-c.html">В · Кино</a><a data-k="d" href="/kansk-teatr/concept-d.html">Г · Бор</a><a data-k="old" href="/kansk-teatr/old.html">Первая главная</a></nav>
+<style>.sw{max-width:calc(100vw - 20px);overflow-x:auto;scrollbar-width:none;align-items:center}.sw::-webkit-scrollbar{display:none}.sw a{white-space:nowrap}.sw__t{padding:0 8px 0 12px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.5;white-space:nowrap}</style>
+<script>(function(){var p=location.pathname,m=p.match(/concept-([abcd])/),k=m?m[1]:/old\.html/.test(p)?"old":"main";document.querySelectorAll(".sw [data-k]").forEach(function(a){a.classList.toggle("on",a.getAttribute("data-k")===k)})})();</script>
+
+</body>
+</html>
