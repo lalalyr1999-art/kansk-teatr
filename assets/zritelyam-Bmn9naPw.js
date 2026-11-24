@@ -1,0 +1,1 @@
+import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css                   *//* empty css              */import{i}from"./chrome-DzLKcEo4.js";import{i as m}from"./buy-BhGOcmFL.js";import"./facade-B0ttPcMh.js";import"./index-DdEiTQuA.js";import"./events-BQrnruzc.js";i();m();

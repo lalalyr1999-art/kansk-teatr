@@ -1,0 +1,93 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>Мобильная версия — Канский театр</title>
+<style>html,body{margin:0;height:100%;background:#1b1c19;display:grid;place-items:center;font:14px system-ui;color:#999}
+.ph{position:relative;width:390px;height:844px;border-radius:44px;padding:12px;background:#000;box-shadow:0 0 0 2px #333,0 30px 80px rgba(0,0,0,.6)}
+iframe{width:390px;height:844px;border:0;border-radius:34px;background:#0c0d0b;display:block}
+/* стекло поверх экрана: ловит мышь и превращает её в палец */
+.glass{position:absolute;left:12px;top:12px;width:390px;height:844px;border-radius:34px;cursor:none;z-index:2}
+.finger{position:absolute;left:0;top:0;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;pointer-events:none;opacity:0;
+  background:radial-gradient(circle,rgba(255,255,255,.5),rgba(255,255,255,.2) 60%,rgba(255,255,255,.05) 72%);
+  box-shadow:0 0 0 2px rgba(255,255,255,.75),0 0 0 3px rgba(0,0,0,.35),0 4px 14px rgba(0,0,0,.4);transition:transform .12s,opacity .2s}
+.finger.down{transform:scale(.72)}
+.glass:hover .finger{opacity:1}
+.hint{position:fixed;left:0;right:0;bottom:14px;text-align:center;color:#8a877f}
+@media (max-height:900px){.ph{transform:scale(.92);transform-origin:center}}</style></head>
+<body><div class="ph"><iframe id="f" src="./"></iframe><div class="glass" id="g"><i class="finger" id="fg"></i></div></div>
+<p class="hint">Мышь = палец: зажмите и тяните — листать, короткое нажатие — касание, колесо тоже работает</p>
+<script>
+var f = document.getElementById("f"), g = document.getElementById("g"), fg = document.getElementById("fg");
+var u = new URLSearchParams(location.search).get("u");
+// на настоящем телефоне рамка не нужна — сразу открыть страницу
+if (matchMedia("(pointer: coarse)").matches || innerWidth < 700) { location.replace(u ? u : "./"); }
+f.src = u ? u : "./" + location.search;
+
+var down = false, moved = false, x0, y0, lx, ly, lt, v = 0, axis, tgt, hsc, vsc, raf;
+function W() { return f.contentWindow; }
+function D() { try { return f.contentDocument; } catch (_) { return null; } }
+function pt(e) { var r = g.getBoundingClientRect(), k = r.width / 390; return { x: (e.clientX - r.left) / k, y: (e.clientY - r.top) / k }; }
+function at(p) { // самый глубокий элемент, в том числе внутри панели замечаний (shadow DOM)
+  var d = D(), el = d && d.elementFromPoint(p.x, p.y), n;
+  while (el && el.shadowRoot && (n = el.shadowRoot.elementFromPoint(p.x, p.y)) && n !== el) el = n;
+  return el;
+}
+function touch(type, p) {
+  var w = W(), el = tgt; if (!w || !el) return;
+  try {
+    var t = new w.Touch({ identifier: 1, target: el, clientX: p.x, clientY: p.y, pageX: p.x + w.scrollX, pageY: p.y + w.scrollY, radiusX: 11, radiusY: 11, force: 1 });
+    var l = type === "touchend" ? [] : [t];
+    el.dispatchEvent(new w.TouchEvent(type, { touches: l, targetTouches: l, changedTouches: [t], bubbles: true, cancelable: true, composed: true }));
+  } catch (_) {}
+}
+function scroller(el, ax) {
+  var w = W(), d = D();
+  for (; el && d && el !== d.body && el !== d.documentElement; el = el.parentElement) {
+    var cs = w.getComputedStyle(el);
+    if (ax === "x" && /(auto|scroll)/.test(cs.overflowX) && el.scrollWidth > el.clientWidth + 2) return el;
+    if (ax === "y" && /(auto|scroll)/.test(cs.overflowY) && el.scrollHeight > el.clientHeight + 2) return el;
+  }
+  return null;
+}
+// ползунок (input type=range): значение по положению пальца
+function isRange(el) { return el && el.tagName === "INPUT" && el.type === "range"; }
+function setRange(el, p) {
+  var r = el.getBoundingClientRect(), mn = +el.min || 0, mx = +el.max || 100, st = +el.step || 1;
+  var k = Math.max(0, Math.min(1, (p.x - r.left - 12) / Math.max(1, r.width - 24)));
+  var v = Math.round((mn + k * (mx - mn)) / st) * st;
+  if (+el.value !== v) { el.value = v; el.dispatchEvent(new (W().Event)("input", { bubbles: true })); }
+}
+function scrollBy(ax, dist) {
+  var el = ax === "x" ? hsc : vsc;
+  if (el) { if (ax === "x") el.scrollLeft += dist; else el.scrollTop += dist; }
+  else if (ax === "y" && W()) W().scrollBy(0, dist);
+}
+
+g.addEventListener("mousemove", function (e) {
+  var p = pt(e); fg.style.left = p.x + "px"; fg.style.top = p.y + "px";
+  if (!down) return;
+  var dx = p.x - lx, dy = p.y - ly, now = performance.now(), dt = Math.max(1, now - lt);
+  if (!moved && Math.hypot(p.x - x0, p.y - y0) > 6) { moved = true; axis = Math.abs(p.x - x0) > Math.abs(p.y - y0) ? "x" : "y"; }
+  if (isRange(tgt)) { setRange(tgt, p); touch("touchmove", p); lx = p.x; ly = p.y; lt = now; return; }
+  if (moved) { scrollBy(axis, -(axis === "x" ? dx : dy)); v = (axis === "x" ? dx : dy) / dt; }
+  touch("touchmove", p); lx = p.x; ly = p.y; lt = now;
+});
+g.addEventListener("mousedown", function (e) {
+  if (e.button !== 0) return; e.preventDefault(); cancelAnimationFrame(raf);
+  var p = pt(e); down = true; moved = false; axis = null; v = 0; x0 = lx = p.x; y0 = ly = p.y; lt = performance.now();
+  tgt = at(p); hsc = scroller(tgt, "x"); vsc = scroller(tgt, "y");
+  fg.classList.add("down"); touch("touchstart", p);
+  if (isRange(tgt)) setRange(tgt, p);
+});
+addEventListener("mouseup", function (e) {
+  if (!down) return; down = false; fg.classList.remove("down");
+  var p = pt(e); touch("touchend", p);
+  if (isRange(tgt)) { tgt.dispatchEvent(new (W().Event)("change", { bubbles: true })); return; }
+  if (!moved) { // касание = клик (поля ввода получают фокус)
+    var el = tgt; if (el) { if (/^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)) el.focus(); el.click(); }
+    return;
+  }
+  v = Math.max(-3, Math.min(3, v)); var ax = axis;
+  (function glide() { if (Math.abs(v) < .02) return; scrollBy(ax, -v * 16); v *= .95; raf = requestAnimationFrame(glide); })();
+});
+g.addEventListener("wheel", function (e) { e.preventDefault(); var w = W(); if (!w) return; var el = scroller(at(pt(e)), "y"); if (el) el.scrollTop += e.deltaY; else w.scrollBy(0, e.deltaY); }, { passive: false });
+// клавиатура (ввод года, Esc) уходит в рамку
+g.addEventListener("mouseenter", function () { try { f.contentWindow.focus(); } catch (_) {} });
+</script></body></html>
