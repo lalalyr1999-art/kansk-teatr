@@ -10,7 +10,7 @@ cd dist
 rm -rf .git
 git init -q -b gh-pages
 git add -A
-git commit -qm "Сборка сайта"
-git push -qf https://github.com/lalalyr1999-art/kansk-teatr.git gh-pages
+git -c user.name=lalalyr1999-art -c user.email=lalalyr1999-art@users.noreply.github.com commit -qm "Сборка сайта"
+git -c http.sslBackend=openssl push -qf https://github.com/lalalyr1999-art/kansk-teatr.git gh-pages
 rm -rf .git
 echo "ok: https://lalalyr1999-art.github.io/kansk-teatr/"

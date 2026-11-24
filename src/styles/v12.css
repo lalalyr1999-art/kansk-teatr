@@ -431,3 +431,42 @@ html.bvi-wb body,html.bvi-wb .card,html.bvi-wb .tile,html.bvi-wb .ft,html.bvi-wb
 .rb__d small{white-space:nowrap}
 @media (max-width:600px){.rb{width:212px}}
 :root .hero__in{max-width:min(1200px,100%)}:root .hero__t{font-size:clamp(3rem,8.4vw,7rem)}
+
+/* люди театра: все сразу, сеткой, без ленты (замечание 23.11) */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:28px 18px;padding:0 var(--g);max-width:1500px;margin:0 auto}
+.pgrid .pp{width:auto;margin:0}
+.pgrid .pp__ph{width:100%}
+.pgrid .pp strong{font-size:.98rem;line-height:1.2}
+@media (max-width:600px){
+  .pgrid{grid-template-columns:repeat(4,1fr);gap:18px 10px}
+  .pgrid .pp figcaption{padding-top:7px}
+  .pgrid .pp strong{font:500 .7rem/1.2 var(--t);letter-spacing:0}
+}
+
+/* месяцы афиши: крупно, жирно, по центру (замечание 20.11) */
+:root .af__head{flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:18px}
+:root .af__months{justify-content:center;max-width:100%;overflow-x:auto;scrollbar-width:none;gap:6px;padding:5px}
+:root .af__months button{height:52px;padding:0 26px;font:700 1.15rem var(--t);color:var(--ink);white-space:nowrap}
+:root .af__months button:not(.on):hover{background:rgba(241,234,221,.08)}
+:root .af__months button.on{background:var(--acc);color:#0b0c0a}
+:root .af .chips>:first-child{margin-left:auto}:root .af .chips>:last-child{margin-right:auto}
+@media (max-width:600px){:root .af__months{width:100%}:root .af__months button{flex:1;height:48px;padding:0 12px;font-size:1.02rem}}
+
+/* телефон: фото спектакля над текстом, а не под ним (замечание 19.11) */
+@media (max-width:700px) and (orientation:portrait){
+  .hero__media{bottom:auto;height:62%;background:#0b0c0a}
+  .hero__media::after{content:"";position:absolute;inset:auto 0 0;height:45%;background:linear-gradient(0deg,#0b0c0a,rgba(11,12,10,0));z-index:1}
+  .hero__media img{object-position:var(--fx,50%) 50%}
+  .hero{background:#0b0c0a}
+}
+
+/* абонементы: семейный и серебряный — две карты веером */
+.gfan--2 .gc{width:118px}
+.gc--fam{background:linear-gradient(135deg,#123a24,#2f7a4c 55%,#1a4f31);transform:translate(-50%,-50%) translateX(-34%) rotate(-8deg)}
+.gc--sil{background:linear-gradient(135deg,#9da3a8,#e8eaec 50%,#b4b9bd);color:#1a1c19;transform:translate(-50%,-50%) translateX(34%) rotate(7deg);z-index:2}
+.gc--sil::before{border-color:rgba(26,28,25,.2)}
+.gc--sil img{opacity:.75}
+.gfan--2 .gc b{font-size:1.02rem;line-height:1.05;letter-spacing:-.01em}
+.tile--gift:hover .gc--fam{transform:translate(-50%,-50%) translateX(-58%) rotate(-12deg)}
+.tile--gift:hover .gc--sil{transform:translate(-50%,-50%) translateX(58%) rotate(11deg)}
+@media (max-width:600px){.gfan--2{height:200px}.gfan--2 .gc{width:98px;top:54%}.gfan--2 .gc b{font-size:.8rem}}

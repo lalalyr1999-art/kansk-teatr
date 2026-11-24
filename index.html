@@ -2,322 +2,112 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Канский драматический театр — театр в сосновом бору</title>
-<meta name="description" content="Канский драматический театр: афиша, билеты онлайн, Пушкинская карта. 120-й сезон, с 1907 года.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B0C0A">
+<title>Канский драматический театр — афиша и билеты</title>
+<meta property="og:title" content="Канский драматический театр — афиша и билеты">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/img/og.jpg">
+<meta name="description" content="Афиша Канского драматического театра и билеты онлайн. Пушкинская карта. 120-й сезон, с 1907 года.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/src/styles/bor.css">
-<link rel="stylesheet" href="/src/styles/c120a.css">
-<link rel="stylesheet" href="/src/styles/c120b.css">
-<link rel="stylesheet" href="/src/styles/c120.css">
-<link rel="stylesheet" href="/src/styles/cast.css">
-<link rel="stylesheet" href="/src/styles/gift.css">
-<link rel="stylesheet" href="/src/styles/foot.css">
-<link rel="stylesheet" href="/src/styles/blocks.css">
+<link rel="stylesheet" href="/src/styles/v12.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"PerformingArtsTheater","name":"Канский драматический театр","foundingDate":"1907-04-05","telephone":"+73916122774","email":"teatrkansk@yandex.ru",
  "address":{"@type":"PostalAddress","streetAddress":"ул. 40 лет Октября, д. 31, стр. 1","addressLocality":"Канск","addressRegion":"Красноярский край","postalCode":"663604","addressCountry":"RU"}}
 </script>
 </head>
 <body>
-<a class="skip" href="#main">К содержанию</a>
+<a class="skip" href="#afisha">К афише</a>
 
-<div class="bvi" data-bvi hidden>
-  <span>Размер шрифта <button type="button" data-fs="16">А</button><button type="button" data-fs="20" style="font-size:1.15rem">А</button><button type="button" data-fs="24" style="font-size:1.35rem">А</button></span>
-  <span>Цвет <button type="button" data-th="bw">Ч/Б</button><button type="button" data-th="wb" style="background:#000;color:#fff;box-shadow:inset 0 0 0 2px #fff">Б/Ч</button><button type="button" data-th="blue" style="background:#9DD1FF;color:#063462">Синий</button></span>
-  <span><button type="button" data-noimg>Изображения: вкл</button></span>
-  <button type="button" class="off" data-bvi-toggle>Обычная версия</button>
-</div>
+<div data-chrome></div>
 
-<header class="top pre" data-top>
-  <div class="gov">
-    <a href="#perks">Минкультуры России: бесплатное посещение спектаклей участниками СВО и их семьями →</a>
-    <span><a href="#perks">Пушкинская карта</a><a href="#perks">Решаем вместе · Госуслуги</a></span>
-  </div>
-  <a class="logo" href="/" aria-label="Канский драматический театр — на главную"><img class="c" src="/img/logo-cream.png" alt=""><img class="k" src="/img/logo-ink.png" alt=""></a>
-  <nav aria-label="Основное меню"><a href="#toc">Афиша</a><a href="#gal">Спектакли</a><a href="#troupe">Люди театра</a><a href="#gift">Подарить</a><a href="#contacts">Контакты</a></nav>
-  <div class="tr">
-    <button class="ib" type="button" data-birds aria-pressed="false" title="Звуки соснового бора"><span class="eq"><i></i><i></i><i></i></span><span class="lbl">Звуки бора</span></button>
-    <button class="ib" type="button" data-bvi-toggle aria-label="Версия для слабовидящих" title="Версия для слабовидящих"><svg viewBox="0 0 22 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 7s4-6 10-6 10 6 10 6-4 6-10 6S1 7 1 7z"/><circle cx="11" cy="7" r="2.6"/></svg></button>
-    <a class="pill" href="#toc">Билеты</a>
-    <button class="burg" type="button" data-menu-open aria-label="Все разделы" aria-expanded="false"><i></i><i></i><i></i></button>
-  </div>
-</header>
-
-<main id="main">
-<section class="stage" data-stage aria-label="Ближайшие спектакли">
-  <div class="scene" data-scene></div>
-  <div class="show" data-show>
-    <div class="show__w" data-when></div>
-    <h1 data-title></h1>
-    <p data-lead></p>
-    <div class="show__acts"><button class="buyb" type="button" data-price>Купить билет</button><a class="ghost" href="#toc">Вся афиша</a></div>
-  </div>
-  <div class="nexts" data-nexts></div>
-  <div class="forest" data-forest aria-hidden="true"></div>
-  <div class="intro" data-intro>
-    <div class="intro__logo" data-ilogo role="img" aria-label="Канский драматический театр"><svg data-fsvg viewBox="0 0 1378 524" aria-hidden="true"></svg></div>
-    <p class="intro__s" data-is><span>1907</span><i></i><span>120-й сезон · театр в сосновом бору</span><i></i><span>2027</span></p>
-    <button class="intro__skip" type="button" data-iskip>Войти в театр</button>
-    <div class="intro__bar" aria-hidden="true"><i data-ibar></i></div>
-  </div>
-</section>
-
-<section class="toc" id="toc">
-  <div class="toc__l"><h2 class="h2">Афиша<br><i data-mname>декабря</i></h2><div class="toc__ph" data-tph></div><p class="toc__cap" data-tcap></p></div>
-  <div><div class="months" data-months></div><div data-rows></div></div>
-</section>
-
-<section class="gal" id="gal" data-gal aria-label="Сезон в кадрах">
-  <div class="gal__pin">
-    <div class="gal__head">
-      <h2 class="h2">Сезон<br><i>в кадрах</i></h2>
-      <p>Премьеры, сказки, лаборатории и наши зрители — 120-й сезон глазами театрального фотографа.</p>
-      <div class="gal__prog"><i data-gprog></i></div>
-    </div>
-    <div class="gal__track" data-gtrack>
-      <figure class="gf"><img src="/img/b/g-kru.jpg" alt="Сцена из спектакля «Принцесса Крю»" loading="lazy"><figcaption>«Принцесса Крю»</figcaption></figure>
-      <figure class="gf gf--t"><img src="/img/b/romeo.jpg" alt="Сцена из спектакля «Ромео и Джульетта»" loading="lazy"><figcaption>«Ромео и Джульетта»</figcaption></figure>
-      <figure class="gf gf--low"><img src="/img/b/g-lesograd.jpg" alt="Сцена из спектакля «Что случилось в Лесограде»" loading="lazy"><figcaption>«Что случилось в Лесограде»</figcaption></figure>
-      <figure class="gf gf--t"><img src="/img/b/g-zritel.jpg" alt="Юная зрительница" loading="lazy"><figcaption>Наши зрители</figcaption></figure>
-      <figure class="gf"><img src="/img/b/ledi.jpg" alt="Сцена из спектакля «Леди Макбет Мценского уезда»" loading="lazy"><figcaption>«Леди Макбет Мценского уезда»</figcaption></figure>
-      <figure class="gf gf--t gf--low"><img src="/img/b/g-more.jpg" alt="Сцена из спектакля «Про море чёрное и акацию белую»" loading="lazy"><figcaption>«Про море чёрное и акацию белую»</figcaption></figure>
+<main>
+<!-- 1. Первый экран = афиша: ближайший спектакль + лента дат -->
+<section class="hero" data-hero aria-label="Ближайшие спектакли">
+  <div class="hero__media" data-hmedia></div>
+  <div class="hero__shade" aria-hidden="true"></div>
+  <div class="hero__in">
+    <p class="hero__k"><span class="dot"></span><span data-hk>Ближайший спектакль</span></p>
+    <h1 class="hero__t" data-ht></h1>
+    <p class="hero__m" data-hm></p>
+    <div class="hero__acts">
+      <button class="btn btn--buy" type="button" data-hbuy>Купить билет</button>
+      <a class="btn btn--line" href="#afisha">Вся афиша</a>
     </div>
   </div>
+  <div class="ribbon" data-ribbon role="tablist" aria-label="Даты спектаклей"></div>
 </section>
 
-<section class="troupe" id="troupe">
-  <div class="troupe__h"><h2 class="h2" style="margin:0">Люди театра<br><i>действующие лица</i></h2><p>Двадцать три артиста канской сцены — в алфавитном порядке.</p></div>
-  <div data-cast></div>
+<!-- 2. Вся афиша -->
+<section class="af" id="afisha" aria-labelledby="af-h">
+  <div class="af__head">
+    <h2 class="h2" id="af-h">Афиша</h2>
+    <div class="af__months" data-months role="tablist" aria-label="Месяц"></div>
+  </div>
+  <div class="chips" data-chips role="group" aria-label="Фильтр">
+    <button type="button" data-f="all" class="on">Все</button><button type="button" data-f="kids">Детям</button><button type="button" data-f="adult">Взрослым</button><button type="button" data-f="premiere">Премьеры</button><button type="button" data-f="pk">Пушкинская карта</button>
+  </div>
+  <div class="cards" data-cards></div>
+  <p class="af__note">Билеты онлайн или в кассе: <a href="tel:+73916122774">8 (39161) 2-27-74</a>. По Пушкинской карте — для зрителей 14–22 лет.</p>
 </section>
 
-<section class="y120" id="120">
-<div data-set="A">
-<div class="cut v0" data-cutsec>
- <div class="cut__in">
-  <div class="cut__img" data-cutimg>
-    <svg class="cut__ring" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="ringp" d="M50,50 m-48,0 a48,48 0 1,1 96,0 a48,48 0 1,1 -96,0"/></defs><text><textPath href="#ringp">120 лет · 1907 — 2027 · Канский драматический театр · 120 лет · 1907 — 2027 · Канский драматический театр ·</textPath></text></svg>
-    <img src="/img/spil.jpg" alt="Спил сосны: годовые кольца">
-    <svg class="cut__my" viewBox="0 0 100 100" aria-hidden="true"><circle data-myc cx="50" cy="50" r="0"/></svg>
-    <span class="cut__yr" data-cyr>1907</span>
-    <span class="cut__tip" data-tip></span>
-  </div>
-  <div class="cut__txt">
-    <h2 class="h2">Нам 120.<br>Мы не стоим на месте —<br><i>мы растём</i></h2>
-    <p>У сосны каждый год — новое кольцо. У театра — новый сезон. Соснам бора вокруг нас до 130 лет: мы выросли вместе.</p>
-    <form class="my" data-my><label for="myy">Найдите своё кольцо</label><div><input id="myy" type="number" inputmode="numeric" min="1907" max="2026" placeholder="Год рождения"><button type="submit">Показать</button></div><p class="my__out" data-myout>Или проведите мышью по спилу.</p></form>
-    <div class="cd" data-cd><span class="cd__k">До юбилея — 5 апреля 2027</span><div class="cd__n"><div><b data-cdd>000</b><small>дней</small></div><div><b data-cdh>00</b><small>часов</small></div><div><b data-cdm>00</b><small>минут</small></div><div><b data-cds>00</b><small>секунд</small></div></div><a class="cd__a" href="#toc">Афиша юбилейного сезона →</a></div>
-    <ol class="yrs" data-yrs>
-      <li><b>1907</b><span>5 апреля зарегистрировано Общество любителей музыки, пения и драматического искусства.</span></li>
-      <li><b>1944–45</b><span>На нашей сцене играет эвакуированный Минусинский драматический театр.</span></li>
-      <li><b>Сегодня</b><span>Творческие лаборатории, гастроли, студия «Пятый элемент», семейные абонементы.</span></li>
-      <li><b>2026/27</b><span>Юбилейный 120-й сезон, новый главный режиссёр — и новые премьеры.</span></li>
-    </ol>
-  </div>
- </div>
-</div>
-</div>
-<div data-set="B">
-<div class="c1b" data-v="1">
-
- <div class="pnb pnb--tun" data-pane="1">
-  <div class="tun" data-tun>
-   <canvas aria-hidden="true"></canvas>
-   <div class="tun__intro" data-tintro><h2 class="h2">Нам 120.<br>Летим<br><i>сквозь кольца</i></h2><p>У сосны каждый год — новое кольцо. Листайте: каждое кольцо — на год ближе к началу.</p></div>
-   <div class="tun__yr" data-tyr aria-hidden="true">2027</div>
-   <div class="tun__cards" data-tcards></div>
-   <div class="tun__end" data-tend><b>1907</b><p>Здесь, в самой сердцевине, всё началось.<br>120 колец спустя — юбилей <i>5 апреля 2027</i>.</p></div>
-  </div>
- </div>
-
- <div class="pnb pnb--tree" data-pane="2">
-  <div class="tree" data-tree>
-   <div class="tree__intro" data-gintro><h2 class="h2">Нам 120.<br>Мы не стоим на месте —<br><i>мы растём</i></h2><p>Листайте — и сосна вырастет на ваших глазах.</p></div>
-   <div class="tree__yr" data-gyr aria-hidden="true">1907</div>
-   <div class="tree__w" data-gw></div>
-  </div>
- </div>
-
- <div class="pnb pnb--hall" data-pane="3">
-  <div class="hall" data-hall>
-   <div class="hall__h"><h2 class="h2">120 лет —<br><i>120 мест в зале</i></h2><p>Каждое кресло — год жизни театра, с 1907-го до наших дней. Огоньки — страницы истории. Наведите на кресло или найдите своё.</p>
-    <form class="hall__f" data-hform><input type="number" inputmode="numeric" min="1907" max="2026" placeholder="Год рождения" aria-label="Год рождения"><button type="submit">Найти моё место</button><span data-hout></span></form></div>
-   <div class="hall__stage"><div class="hall__curt"></div><div class="scr" data-hscr></div><div class="hall__lbl">Сцена · 2027 — юбилей</div></div>
-   <svg class="hall__seats" data-hseats viewBox="60 110 880 520" role="group" aria-label="Зрительный зал: 120 кресел, 120 лет"></svg>
-   <p class="hall__cnt">Занято <b data-hcnt>0</b> из 120</p>
-  </div>
- </div>
-</div>
-</div>
-<div data-set="C">
-<div class="c120" data-c120 data-v="1">
-
- <div class="pane pane--mos" data-pane="1">
-  <div class="mos__wrap">
-   <div class="mos" data-mos><div class="mos__in"></div></div>
-   <div class="mos__side">
-    <h2 class="h2">Нам 120.<br>Каждое кольцо —<br><i>страница истории</i></h2>
-    <p class="mos__lead">Этот спил собран из архивных фотографий театра: в сердцевине — 1907 год, у коры — наши дни. Семь колец — семь эпох. Наведите на любое фото или нажмите на сердцевину.</p>
-    <div class="mos__eras">
-     <button data-era="0">1907–1920</button><button data-era="1">1930–40-е</button><button data-era="2">1950–60-е</button><button data-era="3">1970-е</button><button data-era="4">1980-е</button><button data-era="5">1990–2000-е</button><button data-era="6">Сегодня</button>
-    </div>
-    <div class="mp" data-mpan></div>
-   </div>
-  </div>
- </div>
-
- <div class="pane pane--vin" data-pane="2">
-  <div class="vin__wrap">
-   <div class="vin__side">
-    <h2 class="h2">Нам 120.<br><i>Покрутите время</i></h2>
-    <p class="vin__lead">Возьмите спил и поверните против часовой стрелки — годы побегут назад, к 1907-му. Игла остановится на нужном кольце.</p>
-    <div class="vin__yr" data-vyr aria-live="polite">2027</div>
-    <div class="vc" data-vcard></div>
-    <div class="vin__nav"><button data-vprev>← Раньше</button><button data-vnext>Позже →</button></div>
-   </div>
-   <div class="vin" data-vin>
-    <div class="vin__disc" tabindex="0" role="slider" aria-label="Спил: поворачивайте, чтобы выбрать год" aria-valuemin="1907" aria-valuemax="2027"><img src="/img/spil.jpg" alt="Спил сосны" draggable="false"></div>
-    <svg viewBox="-.5 -.5 1 1" aria-hidden="true">
-     <circle data-vring cx="0" cy="0" r=".43" class="vin__ring"/>
-     <circle cx=".58" cy="-.46" r=".045" class="vin__pv"/><circle cx=".58" cy="-.46" r=".018" class="vin__pv2"/>
-     <line data-arm x1=".58" y1="-.46" x2=".3" y2=".2" class="vin__arm"/>
-     <g data-head><rect x="-.03" y="-.018" width=".06" height=".036" rx=".006" class="vin__hd"/><circle cx="0" cy="0" r=".009" class="vin__tip"/></g>
-    </svg>
-    <div class="vin__hint" data-vhint>↺ Крутите</div>
-   </div>
-  </div>
- </div>
-</div>
-</div>
-</section>
-
-<section class="place" data-place>
-  <div class="place__img" data-placeimg><img src="/img/zdanie.jpg" alt="Здание Канского драматического театра зимой" loading="lazy"></div>
-  <div class="place__in">
-    <div>
-      <h2 class="h2">Единственный театр Канска —<br><i>место, где вы свои</i></h2>
-      <p>Здесь смеются и сопереживают, приходят семьями и впервые — и остаются после спектакля обсудить увиденное. А потом гуляют по бору.</p>
-      <div class="route"><a class="buyb" href="https://yandex.ru/maps/?text=%D0%9A%D0%B0%D0%BD%D1%81%D0%BA%2C%20%D1%83%D0%BB.%2040%20%D0%BB%D0%B5%D1%82%20%D0%9E%D0%BA%D1%82%D1%8F%D0%B1%D1%80%D1%8F%2C%2031" target="_blank" rel="noopener">Построить маршрут</a><a class="ghost" href="#contacts">ул. 40 лет Октября, 31</a></div>
-    </div>
-    <dl class="facts">
-      <div><dt>140 га</dt><dd>памятник природы «Сосновый бор» рядом с театром</dd></div>
-      <div><dt>130 лет</dt><dd>самым старым соснам — ровесникам театра</dd></div>
-      <div><dt>0+ … 18+</dt><dd>спектакли для любого возраста</dd></div>
-    </dl>
+<!-- 3. Сезон в кадрах -->
+<section class="kadry" id="kadry" aria-labelledby="kd-h">
+  <div class="sec-h"><h2 class="h2" id="kd-h">Сезон <i>в кадрах</i></h2><p>Подсмотрите, какие у нас спектакли.</p></div>
+  <div class="strip" data-drag tabindex="0" role="region" aria-label="Кадры из спектаклей, листайте">
+    <figure class="kf"><img src="/img/w/bs/romeo.webp" alt="Сцена из спектакля «Ромео и Джульетта»" loading="lazy"><figcaption>«Ромео и Джульетта»</figcaption></figure>
+    <figure class="kf kf--w"><img src="/img/w/bs/g-kru.webp" alt="Сцена из спектакля «Принцесса Крю»" loading="lazy"><figcaption>«Принцесса Крю»</figcaption></figure>
+    <figure class="kf"><img src="/img/w/bs/ledi.webp" alt="Сцена из спектакля «Леди Макбет Мценского уезда»" loading="lazy"><figcaption>«Леди Макбет Мценского уезда»</figcaption></figure>
+    <figure class="kf kf--w"><img src="/img/w/bs/g-lesograd.webp" alt="Сцена из спектакля «Что случилось в Лесограде»" loading="lazy"><figcaption>«Что случилось в Лесограде»</figcaption></figure>
+    <figure class="kf"><img src="/img/w/bs/g-zritel.webp" alt="Юная зрительница" loading="lazy"><figcaption>Наши зрители</figcaption></figure>
+    <figure class="kf"><img src="/img/w/bs/g-more.webp" alt="Сцена из спектакля «Про море чёрное и акацию белую»" loading="lazy"><figcaption>«Про море чёрное и акацию белую»</figcaption></figure>
+    <figure class="kf kf--w"><img src="/img/w/bs/snezhnaya.webp" alt="Сцена из спектакля «Снежная принцесса»" loading="lazy"><figcaption>«Снежная принцесса»</figcaption></figure>
   </div>
 </section>
 
-<div class="gnw" data-gnw>
-<section class="gift" id="gift">
-  <div class="gift__txt">
-    <h2 class="h2">Подарите<br><i>вечер в театре</i></h2>
-    <p class="gift__lead">Подарочный сертификат Канского драматического театра — на любой спектакль сезона. Выберите номинал и впишите имя: так он будет выглядеть.</p>
-    <div class="gift__nom" role="radiogroup" aria-label="Номинал">
-      <button role="radio" data-n="300">300 ₽</button><button role="radio" data-n="500">500 ₽</button><button role="radio" data-n="1000" class="on" aria-checked="true">1000 ₽</button>
-    </div>
-    <label class="gift__to"><span>Кому</span><input data-gto type="text" maxlength="28" placeholder="Например, маме" autocomplete="off"></label>
-    <div class="gift__cta"><a class="gift__btn" href="tel:+73916122774">Позвонить в кассу</a><span>8 (39161) 2-27-74 · сертификат покупается в кассе театра</span></div>
-    <p class="gift__note">Сертификат действует месяц с даты покупки. Номиналы и условия уточняйте в кассе.</p>
-  </div>
-
-  <div class="gift__stage">
-    <div class="cert" data-cert data-n="1000">
-      <div class="cert__pat" data-gpat aria-hidden="true"></div>
-      <span class="cert__side" aria-hidden="true">Канский драматический театр</span>
-      <div class="cert__top"><img src="/img/logo-cream.png" alt="Канский драматический театр"><span>№ <b data-gno>1907</b></span></div>
-      <div class="cert__mid">
-        <span class="cert__k">Подарочный сертификат</span>
-        <b class="cert__sum"><span data-gsum>1000</span> ₽</b>
-        <span class="cert__for">кому — <i data-gname>самому близкому человеку</i></span>
-      </div>
-      <div class="cert__bot"><span>120-й сезон · 1907—2027</span><span>на любой спектакль</span></div>
-      <span class="cert__shine" aria-hidden="true"></span>
-    </div>
-    <ul class="gift__when" aria-label="Когда подарить">
-      <li><b>31.12</b>Новый год</li><li><b>23.02</b>День защитника Отечества</li><li><b>08.03</b>Международный женский день</li><li><b>05.04</b>День рождения театра — 120 лет</li>
-    </ul>
-  </div>
+<!-- 4. Люди театра -->
+<section class="lyudi" id="lyudi" aria-labelledby="ly-h">
+  <div class="sec-h"><h2 class="h2" id="ly-h">Люди <i>театра</i></h2></div>
+  <div class="pgrid" data-people role="list" aria-label="Артисты театра"></div>
 </section>
-<section class="news" id="news">
-  <div class="news__h"><h2 class="h2" style="margin:0">Новости<br><i>театра</i></h2><a class="lk" href="#">Все новости</a></div>
-  <div class="news__g">
-    <a class="post post--big" href="#"><div class="post__img"><img src="/img/news1.jpg" alt="" loading="lazy"></div><time>Сезон 2026/27</time><h3>В юбилейный сезон в театр приходит новый главный режиссёр</h3><p>Первая постановка — весной, к 120-летию театра.</p></a>
-    <div class="news__side">
-      <a class="post" href="#"><div class="post__img"><img src="/img/news2.jpg" alt="" loading="lazy"></div><time>Сезон 2026/27</time><h3>Семейные абонементы</h3><p>Сказки сезона для всей семьи — теперь по абонементу.</p></a>
-      <a class="post" href="#"><div class="post__img"><img src="/img/news3.jpg" alt="" loading="lazy"></div><time>Сезон 2026/27</time><h3>Театр открывает 120-й сезон</h3><p>Что ждёт зрителей в юбилейный год.</p></a>
+
+<!-- 5. Ещё: подарить, льготы, 120 лет -->
+<section class="esche" id="esche" aria-label="Абонементы, льготы, история">
+  <div class="tiles">
+    <a class="tile tile--gift" href="/zritelyam.html#abonementy">
+      <span class="tile__vis gfan gfan--2" aria-hidden="true"><span class="gc gc--fam"><img src="/img/logo-cream-s.png" alt=""><small>Абонемент</small><b>Семейный</b><em>Канский драматический театр · 120-й сезон</em></span><span class="gc gc--sil"><img src="/img/logo-ink.png" alt=""><small>Абонемент</small><b>Серебряный</b><em>Канский драматический театр · 120-й сезон</em></span></span>
+      <span class="tile__t">Абонементы сезона</span><span class="tile__d">Семейный — сказки сезона для всей семьи. Серебряный — для старшего поколения. В кассе театра: <span style="white-space:nowrap">8 (39161) 2-27-74</span></span></a>
+    <a class="tile tile--pk" href="/zritelyam.html#pushkin">
+      <span class="tile__vis pkc" aria-hidden="true"><span class="pkc__chip"></span><b>Пушкинская<br>карта</b><span class="pkc__no">2200 •••• •••• 1907</span><span class="pkc__age">14–22</span></span>
+      <span class="tile__t">Пушкинская карта</span><span class="tile__d">Для зрителей 14–22 лет: билет за счёт программы. Спектакли отмечены в афише</span></a>
+    <a class="tile tile--svo" href="/zritelyam.html#svo">
+      <span class="tile__vis tkt" aria-hidden="true"><span class="tkt__l"><small>Билет</small><b>0 ₽</b></span><span class="tkt__r">вход<br>свободный</span></span>
+      <span class="tile__t">Участникам СВО и их семьям</span><span class="tile__d">Бесплатное посещение спектаклей по документам</span></a>
+    <a class="tile tile--120" href="/teatr.html">
+      <span class="tile__vis spl" aria-hidden="true"><img src="/img/w/spil.webp" alt="" loading="lazy"><b>120</b></span>
+      <span class="tile__t">Нам 120 лет</span><span class="tile__d">До юбилея <b data-y120d>—</b> дней · история театра</span></a>
+  </div>
+  <div class="news">
+    <h2 class="h3">Новости</h2>
+    <div class="news__row">
+      <a class="nw" href="#"><img src="/img/w/news1.webp" alt="" loading="lazy"><span><time>Сезон 2026/27</time>В юбилейный сезон в театр приходит новый главный режиссёр</span></a>
+      <a class="nw" href="#"><img src="/img/w/news2.webp" alt="" loading="lazy"><span><time>Сезон 2026/27</time>Семейные абонементы: сказки сезона для всей семьи</span></a>
+      <a class="nw" href="#"><img src="/img/w/news3.webp" alt="" loading="lazy"><span><time>Сезон 2026/27</time>Театр открывает 120-й сезон</span></a>
     </div>
   </div>
-</section>
-</div>
-<section class="perks" id="perks">
-  <div class="perks__h"><h2 class="h2" style="margin:0">Льготы<br><i>и программы</i></h2><p>Официальная информация. Раздел обновляется по требованиям министерства культуры.</p></div>
-  <ul>
-    <li><a class="prk" href="/zritelyam.html#pushkin"><h3>Пушкинская карта</h3><p>Для зрителей 14–22 лет: билеты на спектакли за счёт программы.</p><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a></li>
-    <li><a class="prk" href="/zritelyam.html#svo"><h3>Участникам СВО и их семьям</h3><p>Бесплатное посещение спектаклей: порядок и документы.</p><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a></li>
-    <li><a class="prk" href="#"><h3>Семейные абонементы</h3><p>Сказки сезона для всей семьи по специальной цене.</p><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a></li>
-    <li><a class="prk" href="https://pos.gosuslugi.ru/" target="_blank" rel="noopener"><h3>Решаем вместе</h3><p>Сообщите о проблеме или предложите идею через Госуслуги.</p><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a></li>
-  </ul>
 </section>
 </main>
 
-<footer class="foot" id="contacts">
-  <div class="foot__top"><div class="fscene" data-fscene></div><p>Ждём вас<br><i>в сосновом бору</i></p><a class="buyb" href="#toc">Выбрать спектакль</a></div>
-  <div class="foot__g">
-    <div class="foot__c"><img class="foot__logo" src="/img/logo-cream.png" alt="Канский драматический театр"><h4>Адрес</h4><p>663604, Красноярский край, г. Канск,<br>ул. 40 лет Октября, д. 31, стр. 1</p>
-      <div class="soc"><a href="https://vk.ru/dramteatrkansk" target="_blank" rel="noopener">ВКонтакте</a><a href="https://ok.ru/kanskdrama" target="_blank" rel="noopener">Одноклассники</a><a href="https://max.ru/id2450002851_gos" target="_blank" rel="noopener">MAX</a><a href="https://t.me/kanskdrama" target="_blank" rel="noopener">Telegram</a></div></div>
-    <div><h4>Касса</h4><p><a class="big" href="tel:+73916122774">8 (39161) 2-27-74</a>вт–чт, сб–вс 10:00–18:00<br>пт 10:00–17:00, обед 13–14<br>пн — выходной</p>
-      <h4>Приёмная</h4><p><a class="big" href="tel:+73916120379">8 (39161) 2-03-79</a>пн–пт 9:00–18:00<br><a href="mailto:teatrkansk@yandex.ru">teatrkansk@yandex.ru</a></p></div>
-    <nav aria-label="Зрителям"><h4>Зрителям</h4><a href="/zritelyam.html#buy">Как купить билет онлайн</a><a href="/zritelyam.html#return">Возврат билетов</a><a href="/zritelyam.html#rules">Правила посещения</a><a href="/zritelyam.html#pushkin">Пушкинская карта</a><a href="/zritelyam.html#svo">Участникам СВО и их семьям</a><a href="/zritelyam.html#access">Доступная среда</a><a href="/zritelyam.html#age">Возрастная маркировка</a></nav>
-    <nav aria-label="Сведения об организации"><h4>Сведения об организации</h4><a href="/zritelyam.html#org">Основные сведения</a><a href="/zritelyam.html#docs">Документы</a><a href="/zritelyam.html#docs">Государственное задание и отчёты</a><a href="/zritelyam.html#docs">Независимая оценка качества</a><a href="/zritelyam.html#docs">Противодействие коррупции</a><a href="/zritelyam.html#docs">Вакансии</a></nav>
-  </div>
-  <nav class="foot__gov" aria-label="Государственные сервисы">
-    <a href="https://pos.gosuslugi.ru/" target="_blank" rel="noopener">Решаем вместе <span>— сообщить о проблеме</span></a>
-    <a href="https://www.gosuslugi.ru/culture" target="_blank" rel="noopener">Пушкинская карта <span>— Госуслуги, 14–22 года</span></a>
-    <a href="https://www.culture.ru/" target="_blank" rel="noopener">Культура.РФ <span>— афиша на портале</span></a>
-    <a href="https://bus.gov.ru/" target="_blank" rel="noopener">bus.gov.ru <span>— оценить качество услуг</span></a>
-  </nav>
-  <div class="foot__b">
-    <span>© 1907–<span data-year>2026</span> КГБУК «Канский драматический театр». Учредитель — министерство культуры Красноярского края.</span>
-    <span class="foot__legal"><a href="/privacy.html">Политика обработки персональных данных</a><a href="/zritelyam.html#offer">Публичная оферта</a><a href="/zritelyam.html#cookie">Cookie</a></span>
-    <span>Информационная продукция маркируется знаками 0+…18+ согласно 436-ФЗ. Звуки бора: «Birdsong, Bourne Woods» — Robert EA Harvey, CC BY-SA 4.0. Демо: даты и цены условные.</span>
-  </div>
-</footer>
-<audio data-audio src="/birds.mp3" loop preload="none"></audio>
+<div data-chrome-ft></div>
 
-<div class="layer menu" data-menu aria-hidden="true">
-  <div class="layer__bg" data-close></div>
-  <div class="panel" role="dialog" aria-modal="true" aria-label="Все разделы">
-    <button class="x" type="button" data-close aria-label="Закрыть"></button>
-    <img class="menu__logo" src="/img/logo-cream.png" alt="">
-    <div class="menu__cols">
-      <div><h4>Зрителям</h4><a href="#toc">Афиша</a><a href="#">Репертуар</a><a href="#perks">Льготы и Пушкинская карта</a><a href="/zritelyam.html#return">Как купить и вернуть билет</a><a href="/zritelyam.html#rules">Правила посещения</a><a href="/zritelyam.html#access">Доступная среда</a></div>
-      <div><h4>Театр</h4><a href="#120">История</a><a href="#troupe">Люди театра</a><a href="https://t.me/kanskdrama" target="_blank" rel="noopener">Новости</a><a href="#">СМИ о нас</a><a href="#">Вакансии</a><a href="#contacts">Контакты</a></div>
-      <div><h4>Молодёжи</h4><a href="#perks">Пушкинская карта</a><a href="#">Студия «Пятый элемент»</a><a href="#">Волонтёрская служба</a></div>
-      <div><h4>Сведения об организации</h4><a href="/zritelyam.html#org">Основные сведения</a><a href="/zritelyam.html#docs">Документы</a><a href="/zritelyam.html#docs">Финансово-хозяйственная деятельность</a><a href="/zritelyam.html#docs">Независимая оценка качества</a><a href="/zritelyam.html#docs">Противодействие коррупции</a></div>
-    </div>
-    <div class="menu__foot"><a href="tel:+73916122774">Касса: 8 (39161) 2-27-74</a><a class="btn" href="#toc" data-close>Купить билет</a></div>
-  </div>
+<!-- нижняя панель покупки (телефон) -->
+<div class="dock" data-dock aria-hidden="true">
+  <img data-dimg alt="">
+  <span class="dock__t"><b data-dt></b><small data-dd></small></span>
+  <button class="btn btn--buy btn--s" type="button" data-dbuy>Билеты</button>
 </div>
 
-<div class="layer buy" data-buy aria-hidden="true">
-  <div class="layer__bg" data-close></div>
-  <div class="panel" role="dialog" aria-modal="true" aria-labelledby="buy-t">
-    <button class="x" type="button" data-close aria-label="Закрыть"></button>
-    <p class="buy__d" data-bd></p>
-    <h3 id="buy-t" data-bt></h3>
-    <div class="hall"><span class="hall__sc">Сцена</span><div class="seats" data-seats></div>
-      <div class="legend"><span><i></i>свободно</span><span><i class="s"></i>ваш выбор</span><span><i class="t"></i>занято</span></div></div>
-    <div class="buy__bar"><span data-sum>Выберите места на схеме</span><button class="btn" type="button" data-pay disabled>К оплате</button></div>
-    <p class="buy__note">Демонстрация. Здесь будет схема зала и оплата билетного оператора Quick Tickets — прямо на сайте театра.</p>
-  </div>
-</div>
-
-<nav class="sw" aria-label="Варианты для сравнения"><span class="sw__t">Сайт целиком</span><a data-k="main" href="/">Основной</a><a data-k="a" href="/concept-a.html">А · Плакат</a><a data-k="b" href="/concept-b.html">Б · Журнал</a><a data-k="c" href="/concept-c.html">В · Кино</a><a data-k="d" href="/concept-d.html">Г · Бор</a><a data-k="old" href="/old.html">Первая главная</a><span class="sw__d" data-dsw>Заставка: <a href="/?d=2">2с</a><a href="/?d=3">3с</a><a href="/?d=4">4с</a><a href="/?d=5">5с</a></span></nav>
-<style>.sw{max-width:calc(100vw - 20px);overflow-x:auto;scrollbar-width:none;align-items:center}.sw::-webkit-scrollbar{display:none}.sw a{white-space:nowrap}.sw__t{padding:0 8px 0 12px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.5;white-space:nowrap}</style>
-<script>(function(){var p=location.pathname,m=p.match(/concept-([abcd])/),k=m?m[1]:/old\.html/.test(p)?"old":"main";document.querySelectorAll(".sw [data-k]").forEach(function(a){a.classList.toggle("on",a.getAttribute("data-k")===k)})})();</script>
-
-<script type="module" src="/src/js/bor.js"></script>
+<script type="module" src="/src/js/v12.js"></script>
+<script src="/review-notes.js?v=11241400" defer></script>
 </body>
 </html>

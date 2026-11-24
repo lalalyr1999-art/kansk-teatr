@@ -2,7 +2,7 @@
 import os, re, sys
 BASE = sys.argv[2] if len(sys.argv) > 2 else '/kansk-teatr/'
 root = sys.argv[1] if len(sys.argv) > 1 else 'dist'
-pat = re.compile(r'''(["'`(])/(img/|zritelyam\.html|privacy\.html|old\.html|concept-(?!\(\[)|\?|#|birds\.mp3|favicon\.svg|404\.html)''')
+pat = re.compile(r'''(["'`(])/(img/|zritelyam\.html|privacy\.html|teatr\.html|teatr-v11\.html|spektakli\.html|artist\.html|artisty\.html|lyudi-concepts\.html|v11\.html|mobile\.html|old\.html|concept-(?!\(\[)|\?|#|birds\.mp3|favicon\.svg|review-notes\.js|404\.html)''')
 home = re.compile(r'''(href=["'])/(["'])''')
 n = 0
 for d, _, fs in os.walk(root):

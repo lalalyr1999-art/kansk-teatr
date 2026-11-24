@@ -1,0 +1,44 @@
+/* Страница артиста */
+@view-transition{navigation:auto}
+.ar{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,5vw,80px);align-items:start;max-width:1300px;margin:0 auto;padding:clamp(100px,12vw,150px) var(--g) clamp(40px,6vw,80px)}
+.ar__ph{position:sticky;top:96px;aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:#1a1b18;box-shadow:0 40px 80px -40px rgba(0,0,0,.9)}
+.ar__ph img{width:100%;height:100%;object-fit:cover;view-transition-name:artist}
+.ar__back{display:inline-block;margin-bottom:28px;font:500 .9rem var(--t);color:var(--mute)}
+.ar__back:hover{color:var(--ink)}
+.ar__k{margin:0;font:600 .75rem var(--t);letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.ar__n{margin:10px 0 clamp(26px,4vw,44px);font:400 clamp(2.8rem,6vw,5.4rem)/1 var(--s);letter-spacing:-.01em}
+.ar__n i{display:block;color:var(--acc2)}
+.ar__h{margin:0 0 14px;font:600 .78rem var(--t);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.ar__roles ul{list-style:none;margin:0 0 36px;padding:0;border-top:1px solid var(--hair)}
+.ar__roles li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 20px;padding:16px 0;border-bottom:1px solid var(--hair)}
+.ar__roles b{font:400 1.35rem var(--s)}.ar__roles span{color:var(--mute)}
+.ar__bio p{max-width:36em;margin:0;font-size:1.05rem;line-height:1.7;color:var(--mute)}
+
+.ar-next{max-width:1300px;margin:0 auto;padding:clamp(20px,3vw,40px) var(--g) clamp(50px,7vw,90px)}
+.ar-next__row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.arx{position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:2px;min-height:220px;padding:18px;border-radius:18px;overflow:hidden;text-align:left;color:#fff6e8;isolation:isolate}
+.arx img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .9s var(--ease)}
+.arx::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(11,12,10,.92),rgba(11,12,10,.1) 70%)}
+.arx:hover img{transform:scale(1.05)}
+.arx__d{font:500 .85rem var(--t);color:rgba(241,234,221,.8)}.arx__d b{color:#fff6e8}
+.arx__t{font:400 1.4rem/1.15 var(--s)}
+.arx__b{margin-top:8px;align-self:flex-start;padding:7px 14px;border-radius:99px;background:var(--acc);color:#0b0c0a;font:600 .85rem var(--t)}
+
+.ar-tr{max-width:1300px;margin:0 auto;padding:0 var(--g) clamp(60px,8vw,110px);border-top:1px solid var(--hair)}
+.ar-tr__pn{display:flex;justify-content:space-between;gap:20px;padding:26px 0 30px}
+.ar-tr__pn a{display:flex;flex-direction:column;font:400 clamp(1.1rem,2vw,1.5rem) var(--s)}
+.ar-tr__pn a:last-child{text-align:right}
+.ar-tr__pn small{font:500 .78rem var(--t);color:var(--mute);margin-bottom:4px}
+.ar-tr__faces{display:flex;flex-wrap:wrap;justify-content:center;padding-left:10px}
+.ar-tr__faces a{width:58px;height:58px;margin:0 0 -6px -10px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 3px var(--bg);transition:transform .35s var(--ease),filter .3s;filter:brightness(.6) saturate(.8)}
+.ar-tr__faces a:hover{transform:translateY(-6px);filter:none;z-index:2}
+.ar-tr__faces a.on{filter:none;box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--acc);z-index:3}
+.ar-tr__faces img{width:100%;height:100%;object-fit:cover;transform:scale(1.18)}
+
+@media (max-width:860px){
+  .ar{grid-template-columns:1fr;padding-top:84px;gap:22px}
+  .ar__ph{position:relative;top:0;aspect-ratio:1/1;margin:0 calc(var(--g) * -1);border-radius:0}
+  .ar__back{margin-bottom:16px}
+  .ar-next__row{grid-template-columns:1fr;gap:10px}.arx{min-height:150px}
+  .ar-tr__faces a{width:46px;height:46px;margin-left:-8px}
+}

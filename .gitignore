@@ -6,3 +6,4 @@ _архив/
 _источники/
 .playwright-mcp/
 *.log
+_compare/

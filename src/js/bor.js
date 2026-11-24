@@ -4,7 +4,6 @@ import { FACADE } from '../data/facade.js';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
-import { init120 } from './y120.js';
 import { initTroupe } from './troupe.js';
 import { initMisc } from './blocks2.js';
 gsap.registerPlugin(ScrollTrigger);
@@ -147,7 +146,7 @@ initMisc({ ScrollTrigger });
 {
   const cert = $('[data-cert]');
   if (cert) {
-    const sum = $('[data-gsum]'), nm = $('[data-gname]'), inp = $('[data-gto]'), pat = $('[data-gpat]');
+    const sum = $('[data-gsum]'), pat = $('[data-gpat]');
     // фон как у настоящих сертификатов театра: узор из цифр номинала
     const fillPat = n => { let h = ''; for (let i = 0; i < 46; i++) h += `<span style="font-size:${[38, 64, 92, 30, 120, 50][i % 6]}px">${n}</span>`; pat.innerHTML = h; };
     fillPat(1000);
@@ -156,7 +155,6 @@ initMisc({ ScrollTrigger });
       sum.textContent = b.dataset.n; cert.dataset.n = b.dataset.n; fillPat(b.dataset.n);
       cert.classList.remove('bump'); void cert.offsetWidth; cert.classList.add('bump');
     }));
-    inp.addEventListener('input', () => { const v = inp.value.trim(); nm.textContent = v || 'самому близкому человеку'; });
     if (!CALM && matchMedia('(hover:hover)').matches) {
       cert.addEventListener('pointermove', e => { const r = cert.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
         cert.style.setProperty('--ry', (x - .5) * 12 + 'deg'); cert.style.setProperty('--rx', (.5 - y) * 10 + 'deg'); cert.style.setProperty('--mx', x * 100 + '%'); cert.style.setProperty('--my', y * 100 + '%'); });
@@ -190,12 +188,11 @@ initMisc({ ScrollTrigger });
   }
 }
 
-/* 120: все 9 вариантов с переключателем у блока — src/js/y120.js */
-init120({ gsap, ScrollTrigger, CALM });
+/* 120: блок унесён на /teatr.html, здесь — строка с отсчётом */
+{ const d = $('[data-y120d]'); if (d) d.textContent = Math.max(0, Math.ceil((Date.parse('2027-04-05T00:00:00+07:00') - Date.now()) / 864e5)); }
 
 /* место: параллакс + появление */
 if (!CALM) {
-  gsap.fromTo('[data-placeimg]', { yPercent: -8 }, { yPercent: 8, ease: 'none', scrollTrigger: { trigger: '[data-place]', start: 'top bottom', end: 'bottom top', scrub: true } });
   $$('.prk, .post, .facts > div').forEach(el => gsap.from(el, { opacity: 0, y: 30, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%' } }));
 }
 

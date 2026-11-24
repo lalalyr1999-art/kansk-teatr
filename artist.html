@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B0C0A">
+<title>Артист — Канский драматический театр</title>
+<meta property="og:type" content="profile">
+<meta property="og:image" content="/img/og.jpg">
+<meta name="description" content="Артист труппы Канского драматического театра: роли, биография, ближайшие спектакли.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/src/styles/v12.css">
+<link rel="stylesheet" href="/src/styles/pages.css">
+<link rel="stylesheet" href="/src/styles/artist.css">
+</head>
+<body>
+<a class="skip" href="#ar">К странице артиста</a>
+<div data-chrome></div>
+<main>
+  <article class="ar" id="ar">
+    <div class="ar__ph"><img data-aimg alt=""></div>
+    <div class="ar__tx">
+      <a class="ar__back" href="/#lyudi">← Люди театра</a>
+      <p class="ar__k">Артист театра</p>
+      <h1 class="ar__n" data-aname></h1>
+      <div class="ar__roles" data-aroles></div>
+      <div class="ar__bio">
+        <h2 class="ar__h">Биография</h2>
+        <p data-abio></p>
+      </div>
+    </div>
+  </article>
+
+  <section class="ar-next" aria-labelledby="arn-h">
+    <h2 class="ar__h" id="arn-h">Смотрите на сцене</h2>
+    <div class="ar-next__row" data-anext></div>
+  </section>
+
+  <nav class="ar-tr" aria-label="Вся труппа">
+    <div class="ar-tr__pn" data-apn></div>
+    <div class="ar-tr__faces" data-afaces></div>
+  </nav>
+</main>
+<div data-chrome-ft></div>
+<script type="module" src="/src/js/artist.js"></script>
+<script src="/review-notes.js?v=11241400" defer></script>
+</body>
+</html>
